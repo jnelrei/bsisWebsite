@@ -252,7 +252,8 @@ include("../admin_components/top_navigation.php");
   }
 
   #salesFilter,
-  #productsFilter {
+  #productsFilter,
+  #ordersFilter {
     border: 2px solid #e0e6ed;
     border-radius: 8px;
     background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
@@ -271,14 +272,16 @@ include("../admin_components/top_navigation.php");
   }
 
   #salesFilter:hover,
-  #productsFilter:hover {
+  #productsFilter:hover,
+  #ordersFilter:hover {
     border-color: #1ABB9C;
     background: linear-gradient(135deg, #ffffff 0%, #f0fdf9 100%);
     box-shadow: 0 4px 12px rgba(26, 187, 156, 0.2);
   }
 
   #salesFilter:focus,
-  #productsFilter:focus {
+  #productsFilter:focus,
+  #ordersFilter:focus {
     outline: none;
     border-color: #1ABB9C;
     background: #ffffff;
@@ -286,7 +289,8 @@ include("../admin_components/top_navigation.php");
   }
 
   #salesFilter option,
-  #productsFilter option {
+  #productsFilter option,
+  #ordersFilter option {
     padding: 12px 16px;
     font-weight: 500;
     background-color: #ffffff;
@@ -294,7 +298,8 @@ include("../admin_components/top_navigation.php");
   }
 
   #salesFilter option:checked,
-  #productsFilter option:checked {
+  #productsFilter option:checked,
+  #ordersFilter option:checked {
     background: linear-gradient(90deg, #1ABB9C 0%, #16a085 100%);
     color: #ffffff;
     font-weight: 700;
@@ -427,6 +432,31 @@ include("../admin_components/top_navigation.php");
       </div>
       <div class="x_content" style="height: 310px;">
         <canvas id="stockLevelChart"></canvas>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6 col-sm-6">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2 class="sales-chart-title">ITEM ORDERS <span id="ordersDateRange" style="font-size: 14px; color: #98a6ad; font-weight: 400;"></span></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li>
+            <div class="filter-wrapper">
+              <select id="ordersFilter" class="form-control" style="padding: 5px 10px; font-size: 13px; height: auto;">
+                <option value="daily" selected>Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+              <i class="fa fa-chevron-down dropdown-arrow" id="ordersArrow"></i>
+            </div>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content" style="height: 310px;">
+        <canvas id="itemOrdersChart"></canvas>
       </div>
     </div>
   </div>
@@ -585,6 +615,35 @@ include("../admin_components/top_navigation.php");
         setTimeout(function() {
           productsIsOpen = false;
           productsArrow.classList.remove('rotated');
+        }, 100);
+      });
+    }
+
+    // Orders filter arrow
+    const ordersFilter = document.getElementById('ordersFilter');
+    const ordersArrow = document.getElementById('ordersArrow');
+    let ordersIsOpen = false;
+
+    if (ordersFilter && ordersArrow) {
+      ordersFilter.addEventListener('mousedown', function() {
+        ordersIsOpen = !ordersIsOpen;
+        if (ordersIsOpen) {
+          ordersArrow.classList.add('rotated');
+        } else {
+          ordersArrow.classList.remove('rotated');
+        }
+      });
+
+      ordersFilter.addEventListener('blur', function() {
+        ordersIsOpen = false;
+        ordersArrow.classList.remove('rotated');
+      });
+
+      ordersFilter.addEventListener('change', function() {
+        // Close after selection
+        setTimeout(function() {
+          ordersIsOpen = false;
+          ordersArrow.classList.remove('rotated');
         }, 100);
       });
     }
@@ -748,6 +807,15 @@ include("../admin_components/top_navigation.php");
             productsFilterSelect.dispatchEvent(changeEvent);
             setTimeout(() => { isFilterSyncing = false; }, 100);
           }
+          
+          // Synchronize the orders filter by triggering its change event
+          const ordersFilterSelect = document.getElementById('ordersFilter');
+          if (ordersFilterSelect && ordersFilterSelect.value !== selectedValue) {
+            ordersFilterSelect.value = selectedValue;
+            // Trigger change event to update the orders chart
+            const changeEvent = new Event('change', { bubbles: true });
+            ordersFilterSelect.dispatchEvent(changeEvent);
+          }
         });
       }
     }
@@ -872,6 +940,15 @@ include("../admin_components/top_navigation.php");
             const changeEvent = new Event('change', { bubbles: true });
             salesFilterSelect.dispatchEvent(changeEvent);
             setTimeout(() => { isFilterSyncing = false; }, 100);
+          }
+          
+          // Synchronize the orders filter by triggering its change event
+          const ordersFilterSelect = document.getElementById('ordersFilter');
+          if (ordersFilterSelect && ordersFilterSelect.value !== selectedValue) {
+            ordersFilterSelect.value = selectedValue;
+            // Trigger change event to update the orders chart
+            const changeEvent = new Event('change', { bubbles: true });
+            ordersFilterSelect.dispatchEvent(changeEvent);
           }
         });
       }
@@ -1010,6 +1087,194 @@ include("../admin_components/top_navigation.php");
 
       // Load initial data
       fetchStockData();
+    }
+  });
+
+  // Item Orders Line Chart
+  document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('itemOrdersChart');
+    let ordersChart = null;
+
+    if (ctx) {
+      // Initialize chart
+      function createOrdersChart(labels, data) {
+        // Destroy existing chart if it exists
+        if (ordersChart) {
+          ordersChart.destroy();
+        }
+
+        ordersChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Item Orders Quantity',
+              data: data,
+              borderColor: 'rgba(52, 152, 219, 1)',
+              backgroundColor: 'rgba(52, 152, 219, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4,
+              pointRadius: 5,
+              pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+              pointBorderColor: '#fff',
+              pointBorderWidth: 2,
+              pointHoverRadius: 7,
+              pointHoverBackgroundColor: 'rgba(52, 152, 219, 1)',
+              pointHoverBorderColor: '#fff',
+              pointHoverBorderWidth: 3
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 2,
+            plugins: {
+              legend: {
+                display: false
+              },
+              tooltip: {
+                mode: 'index',
+                intersect: false,
+                backgroundColor: 'rgba(42, 63, 84, 0.95)',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                borderColor: 'rgba(52, 152, 219, 0.5)',
+                borderWidth: 1,
+                padding: 12,
+                displayColors: true,
+                callbacks: {
+                  label: function(context) {
+                    let label = context.dataset.label || '';
+                    if (label) {
+                      label += ': ';
+                    }
+                    if (context.parsed.y !== null) {
+                      label += context.parsed.y + ' unit' + (context.parsed.y !== 1 ? 's' : '');
+                    }
+                    return label;
+                  }
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                min: 0,
+                grid: {
+                  color: 'rgba(0, 0, 0, 0.05)',
+                  drawBorder: false
+                },
+                ticks: {
+                  stepSize: 1,
+                  font: {
+                    size: 11
+                  }
+                }
+              },
+              x: {
+                grid: {
+                  display: false,
+                  drawBorder: false
+                },
+                ticks: {
+                  maxRotation: 45,
+                  minRotation: 45,
+                  font: {
+                    size: 12,
+                    weight: 'bold'
+                  },
+                  color: '#2A3F54'
+                }
+              }
+            },
+            interaction: {
+              mode: 'nearest',
+              axis: 'x',
+              intersect: false
+            },
+            hover: {
+              mode: 'index',
+              intersect: false
+            }
+          }
+        });
+      }
+
+      // Fetch order items data based on filter
+      function fetchOrderItemsData(filter) {
+        fetch('get_order_items_data.php?filter=' + filter)
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              createOrdersChart(data.labels, data.data);
+              
+              // Update date range display
+              const dateRangeElement = document.getElementById('ordersDateRange');
+              if (dateRangeElement) {
+                if (data.date_range) {
+                  dateRangeElement.textContent = '(' + data.date_range + ')';
+                } else {
+                  dateRangeElement.textContent = '';
+                }
+              }
+            } else {
+              console.error('Error fetching order items data:', data.message);
+              // Create empty chart on error
+              createOrdersChart([], []);
+              // Clear date range on error
+              const dateRangeElement = document.getElementById('ordersDateRange');
+              if (dateRangeElement) {
+                dateRangeElement.textContent = '';
+              }
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            // Create empty chart on error
+            createOrdersChart([], []);
+            // Clear date range on error
+            const dateRangeElement = document.getElementById('ordersDateRange');
+            if (dateRangeElement) {
+              dateRangeElement.textContent = '';
+            }
+          });
+      }
+
+      // Load initial data (daily by default)
+      fetchOrderItemsData('daily');
+
+      // Handle filter change with synchronization
+      const filterSelect = document.getElementById('ordersFilter');
+      const salesFilterSelect = document.getElementById('salesFilter');
+      const productsFilterSelect = document.getElementById('productsFilter');
+      
+      if (filterSelect) {
+        filterSelect.addEventListener('change', function() {
+          const selectedValue = this.value;
+          fetchOrderItemsData(selectedValue);
+          
+          // Synchronize the sales filter by triggering its change event
+          if (!isFilterSyncing && salesFilterSelect && salesFilterSelect.value !== selectedValue) {
+            isFilterSyncing = true;
+            salesFilterSelect.value = selectedValue;
+            // Trigger change event to update the sales chart
+            const changeEvent = new Event('change', { bubbles: true });
+            salesFilterSelect.dispatchEvent(changeEvent);
+            setTimeout(() => { isFilterSyncing = false; }, 100);
+          }
+          
+          // Synchronize the products filter by triggering its change event
+          if (!isFilterSyncing && productsFilterSelect && productsFilterSelect.value !== selectedValue) {
+            isFilterSyncing = true;
+            productsFilterSelect.value = selectedValue;
+            // Trigger change event to update the products chart
+            const changeEvent = new Event('change', { bubbles: true });
+            productsFilterSelect.dispatchEvent(changeEvent);
+            setTimeout(() => { isFilterSyncing = false; }, 100);
+          }
+        });
+      }
     }
   });
 </script>

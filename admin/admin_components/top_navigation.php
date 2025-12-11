@@ -222,14 +222,16 @@ require_once(__DIR__ . '/get_low_stock.php');
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
+    border: 2px solid #98a6ad;
     color: #2f4050;
-    font-size: 24px;
+    font-size: 18px;
     cursor: pointer;
     transition: all 0.2s ease;
     margin-left: 12px;
+    margin-top: 5px;
   }
 
   .notification-bell.dropdown-toggle::after {
@@ -238,6 +240,7 @@ require_once(__DIR__ . '/get_low_stock.php');
 
   .notification-bell:hover {
     background-color: rgba(26, 187, 156, 0.1);
+    border-color: #1ABB9C;
     color: #1ABB9C;
   }
 
@@ -247,8 +250,8 @@ require_once(__DIR__ . '/get_low_stock.php');
 
   .notification-badge {
     position: absolute;
-    top: 6px;
-    right: 6px;
+    top: -4px;
+    right: -4px;
     background: linear-gradient(135deg, #dc3545, #c82333);
     color: #fff;
     border-radius: 10px;
