@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } elseif ($user['role'] === 'admin') {
                     $_SESSION['redirect_url'] = '../../admin/dashboard/adm_dashboard.php';
                 } elseif ($user['role'] === 'user') {
-                    $_SESSION['redirect_url'] = '../../user/usr_dashboard.php';
+                    $_SESSION['redirect_url'] = '../../user/dashboard/usr_dashboard.php';
                 }
                 
                 // Redirect to intermediate page with message

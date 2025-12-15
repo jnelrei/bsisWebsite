@@ -11,7 +11,7 @@ try {
     
     // Fetch all images for each item
     foreach ($inventory_items as &$item) {
-        $img_stmt = $pdo->prepare("SELECT image FROM inventory_images WHERE item_id = ? ORDER BY create_at ASC");
+        $img_stmt = $pdo->prepare("SELECT image FROM inventory_images WHERE item_id = ? ORDER BY created_at ASC");
         $img_stmt->execute([$item['item_id']]);
         $images = $img_stmt->fetchAll(PDO::FETCH_ASSOC);
         $item['pictures'] = array_column($images, 'image');

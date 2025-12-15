@@ -6,17 +6,27 @@ require_once("../../production/includes/db.php");
 
 // Fetch inventory data from database
 try {
-    $stmt = $pdo->query("SELECT i.item_id, i.item_name, i.category_id, c.category_name, i.description, i.quantity, i.total_cost, i.image_id, i.created_at FROM invtry i LEFT JOIN category c ON i.category_id = c.category_id ORDER BY i.created_at DESC");
+    // Pull all columns that exist in invtry plus the linked image (if any)
+    $stmt = $pdo->query("
+        SELECT 
+            i.item_id,
+            i.item_name,
+            i.category_id,
+            c.category_name,
+            i.description,
+            i.quantity,
+            i.total_cost,
+            i.picture,
+            i.barcode,
+            i.image_id,
+            img.image AS linked_image,
+            i.created_at
+        FROM invtry i
+        LEFT JOIN category c ON i.category_id = c.category_id
+        LEFT JOIN inventory_images img ON i.image_id = img.image_id
+        ORDER BY i.created_at DESC
+    ");
     $inventory_items = $stmt->fetchAll();
-    
-    // Fetch images for each item
-    foreach ($inventory_items as &$item) {
-        $img_stmt = $pdo->prepare("SELECT image FROM inventory_images WHERE item_id = ? ORDER BY create_at ASC LIMIT 1");
-        $img_stmt->execute([$item['item_id']]);
-        $image = $img_stmt->fetch(PDO::FETCH_ASSOC);
-        $item['picture'] = $image ? $image['image'] : null;
-    }
-    unset($item); // Unset reference
 } catch(PDOException $e) {
     $inventory_items = [];
     $error_message = "Error loading inventory: " . $e->getMessage();
@@ -90,6 +100,7 @@ include("../admin_components/top_navigation.php");
                           <th>Picture</th>
                           <th>Item Name</th>
                           <th>Category</th>
+                          <th>Barcode</th>
                           <th>Description</th>
                           <th>Quantity</th>
                           <th>Total Cost</th>
@@ -100,25 +111,26 @@ include("../admin_components/top_navigation.php");
                       <tbody>
                         <?php if (empty($inventory_items)): ?>
                           <tr>
-                            <td colspan="8" class="text-center">No inventory items found.</td>
+                            <td colspan="10" class="text-center">No inventory items found.</td>
                           </tr>
                         <?php else: ?>
                           <?php foreach ($inventory_items as $item): ?>
                             <tr>
                               <td style="text-align: center;">
                                 <?php 
-                                $picture_path = isset($item['picture']) && !empty($item['picture']) ? htmlspecialchars($item['picture']) : '';
+                                // Prefer the explicit picture column; fall back to linked inventory_images entry.
+                                $picture_path = !empty($item['picture']) ? $item['picture'] : ($item['linked_image'] ?? '');
                                 if (!empty($picture_path)): 
-                                  // Check if path is relative or absolute
                                   $img_path = (strpos($picture_path, 'http') === 0) ? $picture_path : $picture_path;
                                 ?>
-                                  <img src="<?php echo $img_path; ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>" style="max-width: 80px; max-height: 80px; object-fit: cover; border-radius: 4px;" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2780%27 height=%2780%27%3E%3Crect fill=%27%23ddd%27 width=%2780%27 height=%2780%27/%3E%3Ctext fill=%27%23999%27 font-family=%27sans-serif%27 font-size=%2714%27 dy=%2710.5%27 font-weight=%27bold%27 x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27%3ENo Image%3C/text%3E%3C/svg%3E';">
+                                  <img src="<?php echo htmlspecialchars($img_path); ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>" style="max-width: 80px; max-height: 80px; object-fit: cover; border-radius: 4px;" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2780%27 height=%2780%27%3E%3Crect fill=%27%23ddd%27 width=%2780%27 height=%2780%27/%3E%3Ctext fill=%27%23999%27 font-family=%27sans-serif%27 font-size=%2714%27 dy=%2710.5%27 font-weight=%27bold%27 x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27%3ENo Image%3C/text%3E%3C/svg%3E';">
                                 <?php else: ?>
                                   <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2780%27 height=%2780%27%3E%3Crect fill=%27%23ddd%27 width=%2780%27 height=%2780%27/%3E%3Ctext fill=%27%23999%27 font-family=%27sans-serif%27 font-size=%2714%27 dy=%2710.5%27 font-weight=%27bold%27 x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27%3ENo Image%3C/text%3E%3C/svg%3E" alt="No Image" style="max-width: 80px; max-height: 80px; object-fit: cover; border-radius: 4px; opacity: 0.7;">
                                 <?php endif; ?>
                               </td>
                               <td><?php echo htmlspecialchars($item['item_name']); ?></td>
                               <td><?php echo htmlspecialchars($item['category_name'] ?? 'N/A'); ?></td>
+                              <td><?php echo htmlspecialchars($item['barcode'] ?? ''); ?></td>
                               <td><?php echo htmlspecialchars($item['description'] ?? ''); ?></td>
                               <td><?php echo htmlspecialchars($item['quantity']); ?></td>
                               <td>₱ <?php echo number_format($item['total_cost'], 2); ?></td>
@@ -177,9 +189,9 @@ $(document).ready(function() {
             
             // Initialize DataTable with custom configuration
             $('#datatable').DataTable({
-                "order": [[6, 'desc']], // Sort by Created At column (index 6) in descending order
+                "order": [[7, 'desc']], // Sort by Created At column (index 7) in descending order
                 "columnDefs": [
-                    { "orderable": false, "targets": [0, 7] } // Disable sorting on Picture column (index 0) and Actions column (index 7)
+                    { "orderable": false, "targets": [0, 8] } // Disable sorting on Picture and Actions columns
                 ]
             });
         } catch (error) {

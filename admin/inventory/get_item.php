@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         
         if ($item) {
             // Fetch all images for this item
-            $stmt = $pdo->prepare("SELECT image_id, image, create_at FROM inventory_images WHERE item_id = ? ORDER BY create_at ASC");
+            $stmt = $pdo->prepare("SELECT image_id, image, created_at FROM inventory_images WHERE item_id = ? ORDER BY created_at ASC");
             $stmt->execute([$item_id]);
             $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
             

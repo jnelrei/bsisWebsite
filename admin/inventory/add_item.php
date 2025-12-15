@@ -50,10 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $files = $_FILES['picture'];
         $file_count = count($files['name']);
         
-        // Create upload directory if it doesn't exist (inside inventory folder)
-        $upload_dir = 'images/';
-        if (!file_exists($upload_dir)) {
-            mkdir($upload_dir, 0777, true);
+        // Build upload paths (absolute for filesystem, relative for DB/browser)
+        $upload_dir_relative = 'images/'; // stored in DB & used by <img src>
+        $upload_dir_absolute = __DIR__ . '/images/'; // actual folder
+        if (!file_exists($upload_dir_absolute)) {
+            mkdir($upload_dir_absolute, 0777, true);
         }
         
         $allowed_types = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
@@ -93,11 +94,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Generate unique filename
             $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
             $unique_filename = uniqid('inv_', true) . '.' . $file_extension;
-            $upload_path = $upload_dir . $unique_filename;
+            $upload_path = $upload_dir_absolute . $unique_filename;
             
             // Move uploaded file
             if (move_uploaded_file($file['tmp_name'], $upload_path)) {
-                $uploaded_images[] = $upload_dir . $unique_filename;
+                $uploaded_images[] = $upload_dir_relative . $unique_filename;
             } else {
                 $errors[] = "Failed to upload image: " . $file['name'];
             }
@@ -132,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Insert images into inventory_images table
             if (!empty($uploaded_images)) {
                 foreach ($uploaded_images as $image_path) {
-                    $stmt = $pdo->prepare("INSERT INTO inventory_images (image, item_id, create_at) VALUES (?, ?, NOW())");
+                    $stmt = $pdo->prepare("INSERT INTO inventory_images (image, item_id, created_at) VALUES (?, ?, NOW())");
                     $stmt->execute([$image_path, $item_id]);
                     
                     // Store first image_id for invtry table
@@ -162,8 +163,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             // If database insert fails, delete uploaded images
             foreach ($uploaded_images as $image_path) {
-                if (file_exists($image_path)) {
-                    unlink($image_path);
+                $absolute_path = __DIR__ . '/' . ltrim($image_path, '/');
+                if (file_exists($absolute_path)) {
+                    unlink($absolute_path);
                 }
             }
             
@@ -175,8 +177,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // If validation errors, delete uploaded images if any
         foreach ($uploaded_images as $image_path) {
-            if (file_exists($image_path)) {
-                unlink($image_path);
+            $absolute_path = __DIR__ . '/' . ltrim($image_path, '/');
+            if (file_exists($absolute_path)) {
+                unlink($absolute_path);
             }
         }
         
