@@ -44,6 +44,25 @@
             scroll-padding-top: 100px;
         }
 
+        /* Adjust scroll padding for mobile to account for navbar */
+        @media (max-width: 960px) {
+            html {
+                scroll-padding-top: 80px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            html {
+                scroll-padding-top: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 60px;
+            }
+        }
+
         body {
             height: 100%;
         }
@@ -759,6 +778,40 @@
             padding: 8px 16px !important;
         }
 
+        /* Mobile search bar pop-out below navbar */
+        @media (max-width: 960px) {
+            .navbar-search-input {
+                position: absolute !important;
+                top: 100% !important;
+                left: 16px !important;
+                right: 16px !important;
+                width: calc(100% - 32px) !important;
+                max-width: none !important;
+                margin-top: 12px !important;
+                padding: 12px 16px !important;
+                border-radius: 12px !important;
+                background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.94)) !important;
+                backdrop-filter: blur(22px) !important;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+                transform: translateY(-10px) !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                z-index: 50 !important;
+            }
+
+            .navbar-search-input.active {
+                width: calc(100% - 32px) !important;
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                pointer-events: auto !important;
+                transition: opacity 0.3s ease, transform 0.3s ease !important;
+            }
+
+            .nav {
+                position: relative !important;
+            }
+        }
+
         .btn-icon-circle {
             width: 22px;
             height: 22px;
@@ -1092,7 +1145,19 @@
                 top: auto;
                 right: auto;
                 width: 100%;
-                margin-top: 40px;
+                margin-top: 100px;
+            }
+
+            .mission-content {
+                text-align: center;
+            }
+
+            .mission-title {
+                text-align: center;
+            }
+
+            .mission-text {
+                text-align: center;
             }
         }
 
@@ -1172,6 +1237,18 @@
                 width: 100%;
                 margin-top: 40px;
             }
+
+            .vision-content {
+                text-align: center;
+            }
+
+            .vision-title {
+                text-align: center;
+            }
+
+            .vision-text {
+                text-align: center;
+            }
         }
 
         .vision-section.visible {
@@ -1241,18 +1318,27 @@
             gap: 24px;
         }
 
+        @media (max-width: 960px) {
+            .announcement-section {
+                margin-top: 240px;
+                scroll-margin-top: 80px;
+            }
+        }
+
         @media (max-width: 720px) {
             .announcement-section {
                 padding: 24px 20px;
-                margin-top: 50px;
+                margin-top: 220px;
+                scroll-margin-top: 70px;
             }
         }
 
         @media (max-width: 480px) {
             .announcement-section {
                 padding: 20px 16px;
-                margin-top: 40px;
+                margin-top: 200px;
                 gap: 20px;
+                scroll-margin-top: 60px;
             }
         }
 
@@ -1293,6 +1379,12 @@
             line-height: 1.6;
         }
 
+        @media (max-width: 960px) {
+            .announcement-text {
+                display: none;
+            }
+        }
+
         .announcement-display {
             min-height: 400px;
             border-radius: var(--radius-md);
@@ -1321,7 +1413,7 @@
         @media (max-width: 720px) {
             .announcement-display {
                 min-height: 300px;
-                padding: 32px;
+                padding: 24px 20px;
                 font-size: 0.88rem;
             }
         }
@@ -1329,7 +1421,7 @@
         @media (max-width: 480px) {
             .announcement-display {
                 min-height: 250px;
-                padding: 24px;
+                padding: 20px 16px;
                 font-size: 0.85rem;
             }
         }
@@ -1385,6 +1477,69 @@
             }
         }
 
+        /* Announcement items grid container */
+        .announcement-items-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 720px) {
+            .announcement-items-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .announcement-items-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        /* Announcement item styling */
+        .announcement-item {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        @media (min-width: 721px) {
+            .announcement-item:nth-child(odd) {
+                padding-right: 20px;
+                border-right: 1px solid rgba(148, 163, 184, 0.2);
+            }
+
+            .announcement-item:nth-child(even) {
+                padding-left: 20px;
+            }
+
+            .announcement-item:nth-child(1),
+            .announcement-item:nth-child(2) {
+                padding-bottom: 32px;
+                margin-bottom: 32px;
+                border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            }
+        }
+
+        @media (max-width: 720px) {
+            .announcement-item {
+                padding: 0 !important;
+                border-right: none !important;
+                border-left: none !important;
+                padding-bottom: 24px !important;
+                margin-bottom: 24px !important;
+                border-bottom: 1px solid rgba(148, 163, 184, 0.2) !important;
+            }
+
+            .announcement-item:last-child {
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+                border-bottom: none !important;
+            }
+        }
+
         /* Empower Innovate Succeed Section */
         .empower-section {
             position: absolute;
@@ -1400,12 +1555,72 @@
         }
 
         @media (max-width: 960px) {
-            .empower-section {
+            /* Position Core Values section as container */
+            #coreValuesSection {
                 position: relative;
-                top: auto;
-                left: auto;
                 width: 100%;
-                margin-top: 40px;
+                margin: 60px auto 10px;
+                min-height: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Position CULTURE section to overlap Core Values */
+            #cultureSection {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 500px;
+                min-height: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 2.5s ease-in-out, visibility 2.5s ease-in-out;
+                pointer-events: none;
+            }
+
+            /* Position Core Values content to center */
+            #coreValuesSection .empower-content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                max-width: 500px;
+                text-align: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 2.5s ease-in-out, visibility 2.5s ease-in-out;
+                pointer-events: none;
+            }
+
+            /* Position CULTURE content to center */
+            #cultureSection .empower-content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                max-width: 500px;
+                text-align: center;
+            }
+
+            #coreValuesSection.visible .empower-content,
+            #cultureSection.visible {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .empower-content {
+                align-items: center;
+                text-align: center;
+                width: 100%;
             }
         }
 
@@ -1456,13 +1671,13 @@
 
         @media (max-width: 720px) {
             .core-values-title {
-                font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+                font-size: clamp(2.5rem, 6vw, 3.5rem);
             }
         }
 
         @media (max-width: 480px) {
             .core-values-title {
-                font-size: clamp(1.4rem, 3vw, 2rem);
+                font-size: clamp(2.3rem, 5.5vw, 3.2rem);
             }
         }
 
@@ -2022,13 +2237,13 @@
 
         @media (max-width: 720px) {
             .projects-section {
-                margin-top: 35px;
+                margin-top: 10px;
             }
         }
 
         @media (max-width: 480px) {
             .projects-section {
-                margin-top: 28px;
+                margin-top: 8px;
             }
         }
 
@@ -2234,13 +2449,13 @@
 
         @media (max-width: 720px) {
             .faculty-section {
-                margin-top: 50px;
+                margin-top: 90px;
             }
         }
 
         @media (max-width: 480px) {
             .faculty-section {
-                margin-top: 40px;
+                margin-top: 80px;
             }
         }
 
@@ -2346,13 +2561,13 @@
 
         @media (max-width: 720px) {
             .partners-section {
-                margin-top: 50px;
+                margin-top: 90px;
             }
         }
 
         @media (max-width: 480px) {
             .partners-section {
-                margin-top: 40px;
+                margin-top: 80px;
             }
         }
 
@@ -2653,15 +2868,15 @@
 
         @media (max-width: 720px) {
             .contact-section {
-                margin-top: 50px;
-                margin-bottom: 16px;
+                margin-top: 90px;
+                margin-bottom: 0;
             }
         }
 
         @media (max-width: 480px) {
             .contact-section {
-                margin-top: 40px;
-                margin-bottom: 12px;
+                margin-top: 80px;
+                margin-bottom: 0;
             }
         }
 
@@ -2677,14 +2892,18 @@
             .contact-header {
                 grid-template-columns: 1fr;
                 gap: 16px;
-                margin-bottom: 16px;
+                margin-bottom: 8px;
+            }
+
+            .contact-title1 {
+                display: none;
             }
         }
 
         @media (max-width: 480px) {
             .contact-header {
                 gap: 12px;
-                margin-bottom: 12px;
+                margin-bottom: 6px;
             }
         }
 
@@ -2722,6 +2941,7 @@
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 18px;
+                margin-top: 8px;
             }
         }
 
@@ -2857,19 +3077,24 @@
 
         @media (max-width: 720px) {
             .footer {
-                margin-top: 16px;
+                margin-top: 0;
                 padding-top: 8px;
                 padding-bottom: 0;
                 gap: 14px;
+                justify-content: center;
+                text-align: center;
             }
         }
 
         @media (max-width: 480px) {
             .footer {
-                margin-top: 12px;
+                margin-top: 0;
                 padding-top: 6px;
                 padding-bottom: 0;
                 gap: 12px;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
             }
         }
 
@@ -2982,15 +3207,34 @@
 
         /* Responsive */
         @media (max-width: 960px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .page-shell {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+
             .shell-inner {
                 padding-inline: 16px;
                 padding-bottom: 50px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .nav {
                 padding-inline: 14px;
+                padding-block: 6px;
                 gap: 14px;
                 flex-wrap: wrap;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .nav-links {
@@ -3002,32 +3246,54 @@
             }
 
             .btn {
-                padding: 8px 14px;
-                font-size: 12px;
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            #loginBtn {
+                border-radius: 999px;
+                padding: 4px 18px;
             }
 
             .hero {
                 grid-template-columns: minmax(0, 1fr);
                 gap: 28px;
                 margin-top: 40px;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-left {
                 min-height: auto;
-                gap: 18px;
+                gap: 20px;
+                padding-left: 24px;
+                padding-right: 24px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-right {
-                order: -1;
-                min-height: 280px;
+                display: none;
             }
 
             .hero-title {
-                font-size: clamp(1.8rem, 5vw, 2.4rem);
+                font-size: clamp(3.2rem, 10vw, 4rem);
+                line-height: 1.2;
+                letter-spacing: -0.02em;
+                margin-top: 60px;
+                margin-bottom: 8px;
+                width: 100%;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                box-sizing: border-box;
             }
 
             .hero-sub {
-                font-size: 0.9rem;
+                display: none;
             }
 
 
@@ -3048,7 +3314,10 @@
             }
 
             /* Fix absolutely positioned sections for tablet */
-            .mission-section,
+            .mission-section {
+                margin-top: 100px;
+            }
+
             .vision-section,
             .empower-section {
                 position: relative;
@@ -3069,15 +3338,33 @@
         }
 
         @media (max-width: 720px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .page-shell {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+
             .shell-inner {
                 padding-inline: 14px;
                 padding-bottom: 40px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .nav {
                 padding-inline: 12px;
-                padding-block: 8px;
+                padding-block: 5px;
                 gap: 10px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .logo-mark {
@@ -3094,8 +3381,13 @@
             }
 
             .btn {
-                padding: 7px 12px;
-                font-size: 11px;
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+
+            #loginBtn {
+                border-radius: 999px;
+                padding: 3px 16px;
             }
 
             .btn-primary.btn-large {
@@ -3106,24 +3398,39 @@
             .hero {
                 margin-top: 32px;
                 gap: 20px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-left {
-                gap: 16px;
+                gap: 18px;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-title {
-                font-size: clamp(1.6rem, 6vw, 2.05rem);
-                line-height: 1.15;
+                font-size: clamp(3rem, 11vw, 3.8rem);
+                line-height: 1.25;
+                letter-spacing: -0.02em;
+                margin-top: 50px;
+                margin-bottom: 6px;
+                width: 100%;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                box-sizing: border-box;
             }
 
             .hero-sub {
-                font-size: 0.88rem;
-                max-width: 100%;
+                display: none;
             }
 
             .hero-right {
-                min-height: 220px;
+                display: none;
             }
 
             .hero-metrics {
@@ -3140,8 +3447,16 @@
             }
 
             .hero-ctas {
-                gap: 8px;
-                margin-top: 6px;
+                gap: 10px;
+                margin-top: 12px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .hero-ctas .btn {
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .why-grid {
@@ -3261,7 +3576,7 @@
             }
 
             .empower-item {
-                font-size: clamp(1.8rem, 8vw, 2.5rem);
+                font-size: clamp(1.6rem, 7vw, 2.2rem);
             }
 
             .empower-description {
@@ -3269,10 +3584,12 @@
             }
 
             .footer {
-                margin-top: 50px;
+                margin-top: 0;
                 padding-top: 16px;
                 font-size: 0.78rem;
                 gap: 14px;
+                justify-content: center;
+                text-align: center;
             }
 
             .footer-links {
@@ -3281,15 +3598,33 @@
         }
 
         @media (max-width: 480px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .page-shell {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+
             .shell-inner {
                 padding-inline: 12px;
                 padding-bottom: 32px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .nav {
                 padding-inline: 10px;
-                padding-block: 6px;
+                padding-block: 4px;
                 gap: 8px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .logo-mark {
@@ -3306,8 +3641,13 @@
             }
 
             .btn {
-                padding: 6px 10px;
-                font-size: 10px;
+                padding: 4px 8px;
+                font-size: 9px;
+            }
+
+            #loginBtn {
+                border-radius: 999px;
+                padding: 3px 14px;
             }
 
             .btn-primary.btn-large {
@@ -3318,24 +3658,39 @@
             .hero {
                 margin-top: 24px;
                 gap: 16px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-left {
-                gap: 12px;
+                gap: 16px;
+                padding-left: 16px;
+                padding-right: 16px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-title {
-                font-size: clamp(1.4rem, 7vw, 1.8rem);
-                line-height: 1.2;
+                font-size: clamp(2.8rem, 12vw, 3.5rem);
+                line-height: 1.3;
+                letter-spacing: -0.01em;
+                margin-top: 55px;
+                margin-bottom: 4px;
+                width: 100%;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                box-sizing: border-box;
             }
 
             .hero-sub {
-                font-size: 0.85rem;
-                line-height: 1.6;
+                display: none;
             }
 
             .hero-right {
-                min-height: 180px;
+                display: none;
             }
 
             .hero-metrics {
@@ -3351,13 +3706,17 @@
             .hero-ctas {
                 flex-direction: column;
                 width: 100%;
-                gap: 6px;
-                margin-top: 4px;
+                max-width: 100%;
+                gap: 8px;
+                margin-top: 10px;
+                box-sizing: border-box;
             }
 
             .hero-ctas .btn {
                 width: 100%;
+                max-width: 100%;
                 justify-content: center;
+                box-sizing: border-box;
             }
 
             .eyebrow-row {
@@ -3473,7 +3832,10 @@
                 padding: 0 10px;
             }
 
-            .mission-section,
+            .mission-section {
+                margin-top: 100px;
+            }
+
             .vision-section,
             .empower-section {
                 margin-top: 24px;
@@ -3505,7 +3867,7 @@
             }
 
             .empower-item {
-                font-size: clamp(1.5rem, 9vw, 2rem);
+                font-size: clamp(1.4rem, 8vw, 1.8rem);
             }
 
             .empower-description {
@@ -3522,11 +3884,14 @@
             }
 
             .footer {
-                margin-top: 32px;
+                margin-top: 0;
                 padding-top: 12px;
                 font-size: 0.76rem;
                 flex-direction: column;
                 gap: 10px;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
             }
 
             .footer-links {
@@ -3587,7 +3952,7 @@
             }
 
             .hero-right {
-                min-height: 200px;
+                display: none;
             }
         }
 
@@ -3788,8 +4153,19 @@
 
         @media (max-width: 768px) {
             .back-to-top {
-                bottom: 20px !important;
-                right: 20px !important;
+                bottom: 30px !important;
+                right: 10px !important;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                border-width: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-to-top {
+                bottom: 35px !important;
+                right: 40px !important;
                 width: 45px;
                 height: 45px;
                 font-size: 20px;
@@ -3900,9 +4276,9 @@
                 </div>
                 <div class="announcement-display" style="align-items: flex-start; padding: 40px;">
                     <div class="announcement-scrollable" style="width: 100%; text-align: left;">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                        <!-- First Announcement Column -->
-                        <ul style="list-style: none; padding: 0; margin: 0; padding-right: 20px; border-right: 1px solid rgba(148, 163, 184, 0.2); padding-bottom: 32px; margin-bottom: 32px; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                        <div class="announcement-items-grid">
+                        <!-- First Announcement -->
+                        <ul class="announcement-item">
                             <li style="margin-bottom: 16px;">
                                 <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">BSIS Department Orientation Week</div>
@@ -3917,8 +4293,8 @@
                             </li>
                         </ul>
                         
-                        <!-- Second Announcement Column -->
-                        <ul style="list-style: none; padding: 0; margin: 0; padding-left: 20px; padding-bottom: 32px; margin-bottom: 32px; border-bottom: 1px solid rgba(148, 163, 184, 0.2);">
+                        <!-- Second Announcement -->
+                        <ul class="announcement-item">
                             <li style="margin-bottom: 16px;">
                                 <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">Capstone Project Proposal Submission</div>
@@ -3933,8 +4309,8 @@
                             </li>
                         </ul>
                         
-                        <!-- Third Announcement Column -->
-                        <ul style="list-style: none; padding: 0; margin: 0; padding-right: 20px; border-right: 1px solid rgba(148, 163, 184, 0.2);">
+                        <!-- Third Announcement -->
+                        <ul class="announcement-item">
                             <li style="margin-bottom: 16px;">
                                 <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">Midterm Examination Schedule</div>
@@ -3949,8 +4325,8 @@
                             </li>
                         </ul>
                         
-                        <!-- Fourth Announcement Column -->
-                        <ul style="list-style: none; padding: 0; margin: 0; padding-left: 20px;">
+                        <!-- Fourth Announcement -->
+                        <ul class="announcement-item">
                             <li style="margin-bottom: 16px;">
                                 <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">IT Career Fair 2024</div>
@@ -5004,10 +5380,87 @@
                 // Just ensure they're visible
                 if (missionSection) missionSection.classList.add('visible');
                 if (visionSection) visionSection.classList.add('visible');
-                if (coreValuesSectionMobile) coreValuesSectionMobile.classList.add('visible');
-                if (cultureSectionMobile) cultureSectionMobile.classList.add('visible');
                 if (heroContentSection) heroContentSection.classList.add('visible');
+
+                // On mobile, create fade transition between Core Values and CULTURE
+                if (coreValuesSectionMobile && cultureSectionMobile) {
+                    // Position CULTURE section to overlap Core Values section
+                    const positionCultureSection = () => {
+                        const coreRect = coreValuesSectionMobile.getBoundingClientRect();
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        cultureSectionMobile.style.position = 'absolute';
+                        cultureSectionMobile.style.top = (coreRect.top + scrollTop) + 'px';
+                        cultureSectionMobile.style.left = '50%';
+                        cultureSectionMobile.style.transform = 'translateX(-50%)';
+                        cultureSectionMobile.style.width = '90%';
+                        cultureSectionMobile.style.maxWidth = '500px';
+                    };
+
+                    // Initial positioning
+                    positionCultureSection();
+                    
+                    // Reposition on resize
+                    window.addEventListener('resize', positionCultureSection);
+
+                    let currentSection = 'coreValues';
+                    const switchInterval = 6000; // Switch every 6 seconds
+
+                    // Show Core Values first
+                    coreValuesSectionMobile.classList.add('visible');
+                    cultureSectionMobile.classList.remove('visible');
+
+                    // Auto-switch between sections
+                    setInterval(() => {
+                        if (currentSection === 'coreValues') {
+                            // Fade out Core Values, fade in CULTURE
+                            coreValuesSectionMobile.classList.remove('visible');
+                            setTimeout(() => {
+                                cultureSectionMobile.classList.add('visible');
+                                currentSection = 'culture';
+                            }, 2500); // Wait for fade out to complete
+                        } else {
+                            // Fade out CULTURE, fade in Core Values
+                            cultureSectionMobile.classList.remove('visible');
+                            setTimeout(() => {
+                                coreValuesSectionMobile.classList.add('visible');
+                                currentSection = 'coreValues';
+                            }, 2500); // Wait for fade out to complete
+                        }
+                    }, switchInterval);
+                }
             }
+
+            // Center announcement section when clicked on mobile
+            const announcementLinks = document.querySelectorAll('a[href="#announcement"]');
+            announcementLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Only center on mobile/responsive
+                    if (window.matchMedia('(max-width: 960px)').matches) {
+                        e.preventDefault();
+                        const announcementSection = document.getElementById('announcement');
+                        if (announcementSection) {
+                            // Wait a moment for any layout changes
+                            setTimeout(() => {
+                                const sectionRect = announcementSection.getBoundingClientRect();
+                                const sectionTop = window.pageYOffset + sectionRect.top;
+                                const sectionHeight = sectionRect.height;
+                                const viewportHeight = window.innerHeight;
+                                const nav = document.querySelector('.nav');
+                                const navHeight = nav ? nav.offsetHeight : 0;
+                                
+                                // Calculate position to center the section in viewport
+                                // Account for navbar height
+                                const centerPosition = sectionTop - (viewportHeight / 2) + (sectionHeight / 2) - (navHeight / 2);
+                                
+                                window.scrollTo({
+                                    top: Math.max(0, centerPosition),
+                                    behavior: 'smooth'
+                                });
+                            }, 10);
+                        }
+                    }
+                });
+            });
 
             // Login modal interactions
             const loginBtn = document.getElementById('loginBtn');
@@ -5091,8 +5544,13 @@
             // Function to smoothly close search input
             function closeSearchInput() {
                 const searchInput = document.getElementById('navbarSearchInput');
+                const nav = searchBtn ? searchBtn.closest('.nav') : null;
                 if (searchInput) {
                     searchInput.classList.remove('active');
+                    // Remove search-active class when search closes (mobile only)
+                    if (nav && window.matchMedia('(max-width: 960px)').matches) {
+                        nav.classList.remove('search-active');
+                    }
                     setTimeout(() => {
                         const checkInput = document.getElementById('navbarSearchInput');
                         if (checkInput && !checkInput.classList.contains('active')) {
@@ -5115,13 +5573,23 @@
                         searchInput.placeholder = 'Search...';
                         searchInput.className = 'navbar-search-input';
                         
-                        // Insert before the search button
-                        searchBtn.parentNode.insertBefore(searchInput, searchBtn);
+                        // On mobile, append to nav container; on desktop, insert before search button
+                        const nav = searchBtn.closest('.nav');
+                        if (nav && window.matchMedia('(max-width: 960px)').matches) {
+                            nav.appendChild(searchInput);
+                        } else {
+                            searchBtn.parentNode.insertBefore(searchInput, searchBtn);
+                        }
                         
                         // Trigger smooth animation by adding active class after a brief delay
                         setTimeout(() => {
                             searchInput.classList.add('active');
                             searchInput.focus();
+                            // Add search-active class when search opens (mobile only)
+                            const nav = searchBtn.closest('.nav');
+                            if (nav && window.matchMedia('(max-width: 960px)').matches) {
+                                nav.classList.add('search-active');
+                            }
                         }, 10);
                         
                         // Handle search on Enter key
@@ -5143,7 +5611,11 @@
                         // Remove search input when clicking outside
                         setTimeout(() => {
                             document.addEventListener('click', function removeSearchInput(e) {
-                                if (!searchInput.contains(e.target) && e.target !== searchBtn) {
+                                const isMobile = window.matchMedia('(max-width: 960px)').matches;
+                                const nav = searchBtn.closest('.nav');
+                                const clickedInsideNav = nav && nav.contains(e.target);
+                                
+                                if (!searchInput.contains(e.target) && e.target !== searchBtn && (!isMobile || !clickedInsideNav)) {
                                     closeSearchInput();
                                     document.removeEventListener('click', removeSearchInput);
                                 }
@@ -5157,6 +5629,11 @@
                             searchInput.classList.add('active');
                             setTimeout(() => {
                                 searchInput.focus();
+                                // Add search-active class when search opens (mobile only)
+                                const nav = searchBtn.closest('.nav');
+                                if (nav && window.matchMedia('(max-width: 960px)').matches) {
+                                    nav.classList.add('search-active');
+                                }
                             }, 10);
                         }
                     }
