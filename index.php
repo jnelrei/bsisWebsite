@@ -1305,6 +1305,30 @@
             color: var(--text-main);
         }
 
+        @media (max-width: 960px) {
+            .mission-content,
+            .vision-content {
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .mission-content,
+            .vision-content {
+                margin-left: 14px;
+                margin-right: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mission-content,
+            .vision-content {
+                margin-left: 12px;
+                margin-right: 12px;
+            }
+        }
+
         /* Announcement Section */
         .announcement-section {
             margin-top: 140px;
@@ -2284,6 +2308,27 @@
             position: relative;
             overflow: hidden;
             border-radius: var(--radius-md);
+        }
+
+        @media (max-width: 960px) {
+            .projects-carousel-wrapper {
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .projects-carousel-wrapper {
+                margin-left: 14px;
+                margin-right: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-carousel-wrapper {
+                margin-left: 12px;
+                margin-right: 12px;
+            }
         }
 
         .projects-carousel {
