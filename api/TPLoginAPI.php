@@ -217,10 +217,20 @@ function authenticateTechnoPal($username, $password) {
     error_log('TechnoPal API Response - HTTP Code: ' . $httpCode . ', Redirect URL: ' . ($redirectUrl ?? 'none') . ', Effective URL: ' . $effectiveUrl . ', Response Size: ' . $responseSize);
     error_log('TechnoPal API Response Snippet: ' . $responseSnippet);
     
-    // Save full response for debugging (optional - comment out in production)
-    $debugFile = __DIR__ . '/../debug_technopal_response_' . time() . '.html';
-    file_put_contents($debugFile, $response);
-    error_log('TechnoPal API Full Response saved to: ' . $debugFile);
+    $timestamp = time();
+    $debugDir = __DIR__ . '/../login_debug';
+    if (!is_dir($debugDir)) {
+        @mkdir($debugDir, 0755, true);
+    }
+    $dirDebugFile = $debugDir . '/technopal_response_' . $timestamp . '.html';
+    @file_put_contents($dirDebugFile, $response);
+    @file_put_contents($debugDir . '/technopal_response_latest.html', $response);
+    $trimmed = ltrim($response);
+    if (strlen($trimmed) && ($trimmed[0] === '{' || $trimmed[0] === '[')) {
+        @file_put_contents($debugDir . '/technopal_response_' . $timestamp . '.json', $response);
+        @file_put_contents($debugDir . '/technopal_response_latest.json', $response);
+    }
+    error_log('TechnoPal API Full Response saved to: ' . $dirDebugFile);
     
     // Check if we were redirected (this usually means successful login)
     if (!empty($redirectUrl) && $redirectUrl !== TECHNOPAL_API_URL) {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -4464,65 +4465,57 @@
                 <div class="projects-carousel-wrapper">
                     <div class="projects-carousel" id="projectsCarousel">
                         <div class="projects-carousel-track" id="projectsCarouselTrack">
-                            <article class="project-card scroll-reveal scroll-reveal-delay-1">
-                                <img src="images/projects/project1.jpg" alt="Student Information System" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EStudent Information System%3C/text%3E%3C/svg%3E';">
-                                <div class="project-content">
-                                    <div class="project-title">Student Information System</div>
-                                    <div class="project-description">
-                                        A comprehensive web-based system for managing student records, enrollment, and academic information. Built with modern technologies to streamline administrative processes.
-                                    </div>
-                                </div>
-                            </article>
+<?php
+require_once __DIR__ . '/functions/db/database.php';
 
-                            <article class="project-card scroll-reveal scroll-reveal-delay-2">
-                                <img src="images/projects/project2.jpg" alt="E-Learning Platform" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EE-Learning Platform%3C/text%3E%3C/svg%3E';">
-                                <div class="project-content">
-                                    <div class="project-title">E-Learning Platform</div>
-                                    <div class="project-description">
-                                        An interactive online learning management system that enables students and faculty to access course materials, submit assignments, and track academic progress.
-                                    </div>
-                                </div>
-                            </article>
+$projects = [];
+try {
+    $pdo = getPDO();
+    $tableCheck = $pdo->query("SHOW TABLES LIKE 'projects'");
+    if ($tableCheck->rowCount() > 0) {
+        $stmt = $pdo->prepare("SELECT project_id, student_id, title, slug, short_description, description, category, technologies, figma_url, live_demo_url, github_url, thumbnail, banner_image, is_featured, is_published, created_at, updated_at FROM projects WHERE is_published = 1 ORDER BY is_featured DESC, created_at DESC LIMIT 12");
+        $stmt->execute();
+        $projects = $stmt->fetchAll();
+    }
+} catch (Exception $e) {
+    $projects = [];
+}
 
-                            <article class="project-card scroll-reveal scroll-reveal-delay-3">
-                                <img src="images/projects/project3.jpg" alt="Library Management System" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3ELibrary Management System%3C/text%3E%3C/svg%3E';">
+if (!empty($projects)):
+    $delay = 1;
+    foreach ($projects as $p):
+        $title = htmlspecialchars($p['title'] ?? 'Untitled Project');
+        $desc = htmlspecialchars($p['short_description'] ?? ($p['description'] ?? ''));
+        $thumb = $p['thumbnail'] ?? '';
+        $thumbPath = '';
+        if (!empty($thumb) && file_exists(__DIR__ . '/student/uploads/' . $thumb)) {
+            $thumbPath = 'student/uploads/' . $thumb;
+        }
+        $encodedTitle = rawurlencode($title);
+?>
+                            <article class="project-card scroll-reveal scroll-reveal-delay-<?php echo $delay; ?>">
+                                <?php if ($thumbPath): ?>
+                                    <img src="<?php echo htmlspecialchars($thumbPath); ?>" alt="<?php echo $title; ?>" class="project-image">
+                                <?php else: ?>
+                                    <img src="images/bsis_logo.png" alt="<?php echo $title; ?>" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3E<?php echo $encodedTitle; ?>%3C/text%3E%3C/svg%3E';">
+                                <?php endif; ?>
                                 <div class="project-content">
-                                    <div class="project-title">Library Management System</div>
-                                    <div class="project-description">
-                                        Digital library solution for cataloging books, managing borrowings, and tracking inventory. Features automated notifications and search functionality.
-                                    </div>
+                                    <div class="project-title"><?php echo $title; ?></div>
+                                    <div class="project-description"><?php echo $desc; ?></div>
                                 </div>
                             </article>
-
-                            <article class="project-card scroll-reveal scroll-reveal-delay-4">
-                                <img src="images/projects/project4.jpg" alt="Attendance Monitoring System" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EAttendance Monitoring System%3C/text%3E%3C/svg%3E';">
+<?php
+        $delay = $delay % 4 + 1;
+    endforeach;
+else:
+?>
+                            <article class="project-card">
                                 <div class="project-content">
-                                    <div class="project-title">Attendance Monitoring System</div>
-                                    <div class="project-description">
-                                        Automated attendance tracking system using biometric and RFID technology. Provides real-time monitoring and generates comprehensive reports for faculty and administration.
-                                    </div>
+                                    <div class="project-title">No projects yet</div>
+                                    <div class="project-description">Projects will appear here when published.</div>
                                 </div>
                             </article>
-
-                            <article class="project-card scroll-reveal scroll-reveal-delay-1">
-                                <img src="images/projects/project5.jpg" alt="Grade Management Portal" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EGrade Management Portal%3C/text%3E%3C/svg%3E';">
-                                <div class="project-content">
-                                    <div class="project-title">Grade Management Portal</div>
-                                    <div class="project-description">
-                                        Secure portal for faculty to input grades and for students to view their academic performance. Includes grade computation and transcript generation features.
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="project-card scroll-reveal scroll-reveal-delay-2">
-                                <img src="images/projects/project6.jpg" alt="Event Management System" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EEvent Management System%3C/text%3E%3C/svg%3E';">
-                                <div class="project-content">
-                                    <div class="project-title">Event Management System</div>
-                                    <div class="project-description">
-                                        Platform for organizing and managing college events, seminars, and activities. Features event registration, scheduling, and participant management.
-                                    </div>
-                                </div>
-                            </article>
+<?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -5797,7 +5790,6 @@
                     clearError(loginUsername);
                     clearError(loginPassword);
 
-                    // Validate inputs
                     let isValid = true;
                     if (!loginUsername.value.trim()) {
                         setError(loginUsername, 'Username is required.');
@@ -5815,12 +5807,33 @@
                     setLoading(true);
 
                     try {
-                        // Prepare form data - using txtUserName and txtPassword as expected by API
+                        const saParams = new URLSearchParams();
+                        saParams.append('username', loginUsername.value.trim());
+                        saParams.append('password', loginPassword.value);
+
+                        const saResp = await fetch('production/includes/superadmin_login.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: saParams
+                        });
+
+                        if (saResp.ok) {
+                            const saData = await saResp.json();
+                            if (saData && saData.success) {
+                                showSuccess('Login successful! Redirecting...');
+                                setTimeout(() => {
+                                    window.location.href = saData.redirect || 'superadmin/dashboard/main.php';
+                                }, 800);
+                                return;
+                            }
+                        }
+
                         const formData = new URLSearchParams();
                         formData.append('txtUserName', loginUsername.value.trim());
                         formData.append('txtPassword', loginPassword.value);
 
-                        // Call the API
                         const response = await fetch('BCCWeb/TPLoginAPI.php', {
                             method: 'POST',
                             headers: {
@@ -5829,7 +5842,6 @@
                             body: formData
                         });
 
-                        // Check if response is ok
                         if (!response.ok) {
                             let errorData;
                             try {
@@ -5844,13 +5856,10 @@
 
                         if (data.success) {
                             showSuccess('Login successful! Redirecting...');
-                            
-                            // Determine redirect based on user type
                             let redirectUrl = 'index.php';
                             if (data.data.user_type === 'student') {
                                 redirectUrl = 'student/main.php';
                             } else if (data.data.user_type === 'user') {
-                                // Handle different user roles
                                 if (data.data.role === 'admin') {
                                     redirectUrl = 'admin/dashboard/main.php';
                                 } else if (data.data.role === 'superadmin') {
@@ -5859,20 +5868,14 @@
                                     redirectUrl = 'student/main.php';
                                 }
                             }
-
-                            // Set session via a separate endpoint
                             await setSession(data.data);
-
-                            // Redirect after a short delay
                             setTimeout(() => {
                                 window.location.href = redirectUrl;
                             }, 1000);
-
                         } else {
                             showError(data.message || 'Invalid username or password.');
                             setLoading(false);
                         }
-
                     } catch (error) {
                         console.error('Login error:', error);
                         const errorMsg = error.message || 'An error occurred. Please try again.';
