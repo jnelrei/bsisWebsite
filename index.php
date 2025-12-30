@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -650,6 +651,10 @@
             }
         }
 
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         .logo-dot {
             color: var(--accent);
         }
@@ -1150,6 +1155,7 @@
 
             .mission-content {
                 text-align: center;
+                margin-inline: 16px;
             }
 
             .mission-title {
@@ -1178,12 +1184,14 @@
         @media (max-width: 720px) {
             .mission-content {
                 padding: 18px 20px;
+                margin-inline: 14px;
             }
         }
 
         @media (max-width: 480px) {
             .mission-content {
                 padding: 14px 16px;
+                margin-inline: 12px;
             }
         }
 
@@ -1240,6 +1248,7 @@
 
             .vision-content {
                 text-align: center;
+                margin-inline: 16px;
             }
 
             .vision-title {
@@ -1268,12 +1277,14 @@
         @media (max-width: 720px) {
             .vision-content {
                 padding: 18px 20px;
+                margin-inline: 14px;
             }
         }
 
         @media (max-width: 480px) {
             .vision-content {
                 padding: 14px 16px;
+                margin-inline: 12px;
             }
         }
 
@@ -1303,30 +1314,6 @@
             font-size: 0.95rem;
             line-height: 1.7;
             color: var(--text-main);
-        }
-
-        @media (max-width: 960px) {
-            .mission-content,
-            .vision-content {
-                margin-left: 16px;
-                margin-right: 16px;
-            }
-        }
-
-        @media (max-width: 720px) {
-            .mission-content,
-            .vision-content {
-                margin-left: 14px;
-                margin-right: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .mission-content,
-            .vision-content {
-                margin-left: 12px;
-                margin-right: 12px;
-            }
         }
 
         /* Announcement Section */
@@ -2259,15 +2246,23 @@
             margin-top: 50px;
         }
 
+        @media (max-width: 960px) {
+            .projects-section {
+                margin-inline: 16px;
+            }
+        }
+
         @media (max-width: 720px) {
             .projects-section {
                 margin-top: 10px;
+                margin-inline: 14px;
             }
         }
 
         @media (max-width: 480px) {
             .projects-section {
                 margin-top: 8px;
+                margin-inline: 12px;
             }
         }
 
@@ -2308,27 +2303,6 @@
             position: relative;
             overflow: hidden;
             border-radius: var(--radius-md);
-        }
-
-        @media (max-width: 960px) {
-            .projects-carousel-wrapper {
-                margin-left: 16px;
-                margin-right: 16px;
-            }
-        }
-
-        @media (max-width: 720px) {
-            .projects-carousel-wrapper {
-                margin-left: 14px;
-                margin-right: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .projects-carousel-wrapper {
-                margin-left: 12px;
-                margin-right: 12px;
-            }
         }
 
         .projects-carousel {
@@ -4115,6 +4089,40 @@
             margin-top: 2px;
         }
 
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #86efac;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(2, 6, 23, 0.3);
+            border-radius: 50%;
+            border-top-color: #020617;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
         .modal-footer {
             display: flex;
             flex-direction: column;
@@ -4471,65 +4479,57 @@
                 <div class="projects-carousel-wrapper">
                     <div class="projects-carousel" id="projectsCarousel">
                         <div class="projects-carousel-track" id="projectsCarouselTrack">
-                            <article class="project-card scroll-reveal scroll-reveal-delay-1">
-                                <img src="images/projects/project1.jpg" alt="Student Information System" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EStudent Information System%3C/text%3E%3C/svg%3E';">
-                                <div class="project-content">
-                                    <div class="project-title">Student Information System</div>
-                                    <div class="project-description">
-                                        A comprehensive web-based system for managing student records, enrollment, and academic information. Built with modern technologies to streamline administrative processes.
-                                    </div>
-                                </div>
-                            </article>
+<?php
+require_once __DIR__ . '/functions/db/database.php';
 
-                            <article class="project-card scroll-reveal scroll-reveal-delay-2">
-                                <img src="images/projects/project2.jpg" alt="E-Learning Platform" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EE-Learning Platform%3C/text%3E%3C/svg%3E';">
-                                <div class="project-content">
-                                    <div class="project-title">E-Learning Platform</div>
-                                    <div class="project-description">
-                                        An interactive online learning management system that enables students and faculty to access course materials, submit assignments, and track academic progress.
-                                    </div>
-                                </div>
-                            </article>
+$projects = [];
+try {
+    $pdo = getPDO();
+    $tableCheck = $pdo->query("SHOW TABLES LIKE 'projects'");
+    if ($tableCheck->rowCount() > 0) {
+        $stmt = $pdo->prepare("SELECT project_id, student_id, title, slug, short_description, description, category, technologies, figma_url, live_demo_url, github_url, thumbnail, banner_image, is_featured, is_published, created_at, updated_at FROM projects WHERE is_published = 1 ORDER BY is_featured DESC, created_at DESC LIMIT 12");
+        $stmt->execute();
+        $projects = $stmt->fetchAll();
+    }
+} catch (Exception $e) {
+    $projects = [];
+}
 
-                            <article class="project-card scroll-reveal scroll-reveal-delay-3">
-                                <img src="images/projects/project3.jpg" alt="Library Management System" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3ELibrary Management System%3C/text%3E%3C/svg%3E';">
+if (!empty($projects)):
+    $delay = 1;
+    foreach ($projects as $p):
+        $title = htmlspecialchars($p['title'] ?? 'Untitled Project');
+        $desc = htmlspecialchars($p['short_description'] ?? ($p['description'] ?? ''));
+        $thumb = $p['thumbnail'] ?? '';
+        $thumbPath = '';
+        if (!empty($thumb) && file_exists(__DIR__ . '/student/uploads/' . $thumb)) {
+            $thumbPath = 'student/uploads/' . $thumb;
+        }
+        $encodedTitle = rawurlencode($title);
+?>
+                            <article class="project-card scroll-reveal scroll-reveal-delay-<?php echo $delay; ?>">
+                                <?php if ($thumbPath): ?>
+                                    <img src="<?php echo htmlspecialchars($thumbPath); ?>" alt="<?php echo $title; ?>" class="project-image">
+                                <?php else: ?>
+                                    <img src="images/bsis_logo.png" alt="<?php echo $title; ?>" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3E<?php echo $encodedTitle; ?>%3C/text%3E%3C/svg%3E';">
+                                <?php endif; ?>
                                 <div class="project-content">
-                                    <div class="project-title">Library Management System</div>
-                                    <div class="project-description">
-                                        Digital library solution for cataloging books, managing borrowings, and tracking inventory. Features automated notifications and search functionality.
-                                    </div>
+                                    <div class="project-title"><?php echo $title; ?></div>
+                                    <div class="project-description"><?php echo $desc; ?></div>
                                 </div>
                             </article>
-
-                            <article class="project-card scroll-reveal scroll-reveal-delay-4">
-                                <img src="images/projects/project4.jpg" alt="Attendance Monitoring System" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EAttendance Monitoring System%3C/text%3E%3C/svg%3E';">
+<?php
+        $delay = $delay % 4 + 1;
+    endforeach;
+else:
+?>
+                            <article class="project-card">
                                 <div class="project-content">
-                                    <div class="project-title">Attendance Monitoring System</div>
-                                    <div class="project-description">
-                                        Automated attendance tracking system using biometric and RFID technology. Provides real-time monitoring and generates comprehensive reports for faculty and administration.
-                                    </div>
+                                    <div class="project-title">No projects yet</div>
+                                    <div class="project-description">Projects will appear here when published.</div>
                                 </div>
                             </article>
-
-                            <article class="project-card scroll-reveal scroll-reveal-delay-1">
-                                <img src="images/projects/project5.jpg" alt="Grade Management Portal" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EGrade Management Portal%3C/text%3E%3C/svg%3E';">
-                                <div class="project-content">
-                                    <div class="project-title">Grade Management Portal</div>
-                                    <div class="project-description">
-                                        Secure portal for faculty to input grades and for students to view their academic performance. Includes grade computation and transcript generation features.
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="project-card scroll-reveal scroll-reveal-delay-2">
-                                <img src="images/projects/project6.jpg" alt="Event Management System" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3EEvent Management System%3C/text%3E%3C/svg%3E';">
-                                <div class="project-content">
-                                    <div class="project-title">Event Management System</div>
-                                    <div class="project-description">
-                                        Platform for organizing and managing college events, seminars, and activities. Features event registration, scheduling, and participant management.
-                                    </div>
-                                </div>
-                            </article>
+<?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -4703,21 +4703,23 @@
                 <p class="modal-description">
                     Enter your credentials to continue. This can later be connected to your real authentication system.
                 </p>
-                <form id="loginForm" action="functions/login/login.php" method="post" autocomplete="off">
+                <div class="error-message" id="errorMessage" style="display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; padding: 12px 16px; border-radius: var(--radius-md); margin-bottom: 20px; font-size: 14px;"></div>
+                <div class="success-message" id="successMessage" style="display: none; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #86efac; padding: 12px 16px; border-radius: var(--radius-md); margin-bottom: 20px; font-size: 14px;"></div>
+                <form id="loginForm" autocomplete="off">
                     <div class="form-field">
                         <label class="form-label" for="login-username">Username</label>
-                        <input class="form-input" type="text" id="login-username" name="username" placeholder="e.g. student001" required>
+                        <input class="form-input" type="text" id="login-username" name="username" placeholder="e.g. student001" required autocomplete="username">
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="login-password">Password</label>
-                        <input class="form-input" type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                        <input class="form-input" type="password" id="login-password" name="password" placeholder="Enter your password" required autocomplete="current-password">
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary btn-large" type="submit" style="width: 100%; justify-content: center;">
+                        <button class="btn btn-primary btn-large" type="submit" id="loginSubmitBtn" style="width: 100%; justify-content: center;">
                             Log in
                         </button>
                         <div class="modal-footer-note">
-                            By logging in you agree to the department’s acceptable use policy.
+                            By logging in you agree to the department's acceptable use policy.
                         </div>
                     </div>
                 </form>
@@ -5511,7 +5513,7 @@
             const loginBtn = document.getElementById('loginBtn');
             const loginModal = document.getElementById('loginModal');
             const loginModalClose = document.getElementById('loginModalClose');
-            const loginUsername = document.getElementById('login-username');
+            const loginUsernameEl = document.getElementById('login-username');
 
             function openLoginModal() {
                 if (!loginModal) return;
@@ -5520,7 +5522,7 @@
                 document.body.style.overflow = 'hidden';
                 document.body.classList.add('modal-open');
                 setTimeout(() => {
-                    if (loginUsername) loginUsername.focus();
+                    if (loginUsernameEl) loginUsernameEl.focus();
                 }, 150);
             }
 
@@ -5720,29 +5722,45 @@
                 return re.test(String(value).toLowerCase());
             }
 
-            // Login form validation
+            // Login form validation and submission
             const loginForm = document.getElementById('loginForm');
+            const loginUsername = document.getElementById('login-username');
             const loginPassword = document.getElementById('login-password');
+            const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
 
-            function validateLoginForm() {
-                let valid = true;
-                if (loginUsername) {
-                    const value = loginUsername.value.trim();
-                    clearError(loginUsername);
-                    if (!value) {
-                        setError(loginUsername, 'Username is required.');
-                        valid = false;
+            function hideMessages() {
+                if (errorMessage) errorMessage.style.display = 'none';
+                if (successMessage) successMessage.style.display = 'none';
+            }
+
+            function showError(message) {
+                if (errorMessage) {
+                    errorMessage.textContent = message;
+                    errorMessage.style.display = 'block';
+                    if (successMessage) successMessage.style.display = 'none';
+                }
+            }
+
+            function showSuccess(message) {
+                if (successMessage) {
+                    successMessage.textContent = message;
+                    successMessage.style.display = 'block';
+                    if (errorMessage) errorMessage.style.display = 'none';
+                }
+            }
+
+            function setLoading(loading) {
+                if (loginSubmitBtn) {
+                    if (loading) {
+                        loginSubmitBtn.disabled = true;
+                        loginSubmitBtn.innerHTML = '<span class="loading" style="display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(2, 6, 23, 0.3); border-radius: 50%; border-top-color: #020617; animation: spin 0.8s linear infinite; margin-right: 8px;"></span>Logging in...';
+                    } else {
+                        loginSubmitBtn.disabled = false;
+                        loginSubmitBtn.innerHTML = 'Log in';
                     }
                 }
-                if (loginPassword) {
-                    const value = loginPassword.value;
-                    clearError(loginPassword);
-                    if (!value) {
-                        setError(loginPassword, 'Password is required.');
-                        valid = false;
-                    }
-                }
-                return valid;
             }
 
             if (loginUsername) {
@@ -5750,6 +5768,7 @@
                     if (loginUsername.value.trim()) {
                         clearError(loginUsername);
                     }
+                    hideMessages();
                 });
             }
 
@@ -5758,13 +5777,124 @@
                     if (loginPassword.value) {
                         clearError(loginPassword);
                     }
+                    hideMessages();
                 });
             }
 
+            // Function to set session via PHP
+            async function setSession(userData) {
+                try {
+                    const response = await fetch('api/set_session.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(userData)
+                    });
+                    return await response.json();
+                } catch (error) {
+                    console.error('Session error:', error);
+                }
+            }
+
             if (loginForm) {
-                loginForm.addEventListener('submit', (e) => {
-                    if (!validateLoginForm()) {
-                        e.preventDefault();
+                loginForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    hideMessages();
+                    clearError(loginUsername);
+                    clearError(loginPassword);
+
+                    let isValid = true;
+                    if (!loginUsername.value.trim()) {
+                        setError(loginUsername, 'Username is required.');
+                        isValid = false;
+                    }
+                    if (!loginPassword.value) {
+                        setError(loginPassword, 'Password is required.');
+                        isValid = false;
+                    }
+
+                    if (!isValid) {
+                        return;
+                    }
+
+                    setLoading(true);
+
+                    try {
+                        const saParams = new URLSearchParams();
+                        saParams.append('username', loginUsername.value.trim());
+                        saParams.append('password', loginPassword.value);
+
+                        const saResp = await fetch('production/includes/superadmin_login.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: saParams
+                        });
+
+                        if (saResp.ok) {
+                            const saData = await saResp.json();
+                            if (saData && saData.success) {
+                                showSuccess('Login successful! Redirecting...');
+                                setTimeout(() => {
+                                    window.location.href = saData.redirect || 'superadmin/dashboard/main.php';
+                                }, 800);
+                                return;
+                            }
+                        }
+
+                        const formData = new URLSearchParams();
+                        formData.append('txtUserName', loginUsername.value.trim());
+                        formData.append('txtPassword', loginPassword.value);
+
+                        const response = await fetch('BCCWeb/TPLoginAPI.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: formData
+                        });
+
+                        if (!response.ok) {
+                            let errorData;
+                            try {
+                                errorData = await response.json();
+                            } catch (e) {
+                                errorData = { message: `HTTP Error ${response.status}: ${response.statusText}` };
+                            }
+                            throw new Error(errorData.message || errorData.error || 'An error occurred');
+                        }
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            showSuccess('Login successful! Redirecting...');
+                            let redirectUrl = 'index.php';
+                            if (data.data.user_type === 'student') {
+                                redirectUrl = 'student/main.php';
+                            } else if (data.data.user_type === 'user') {
+                                if (data.data.role === 'admin') {
+                                    redirectUrl = 'admin/dashboard/main.php';
+                                } else if (data.data.role === 'superadmin') {
+                                    redirectUrl = 'admin/dashboard/main.php';
+                                } else {
+                                    redirectUrl = 'student/main.php';
+                                }
+                            }
+                            await setSession(data.data);
+                            setTimeout(() => {
+                                window.location.href = redirectUrl;
+                            }, 1000);
+                        } else {
+                            showError(data.message || 'Invalid username or password.');
+                            setLoading(false);
+                        }
+                    } catch (error) {
+                        console.error('Login error:', error);
+                        const errorMsg = error.message || 'An error occurred. Please try again.';
+                        showError(errorMsg);
+                        setLoading(false);
                     }
                 });
             }
@@ -5772,6 +5902,7 @@
             // Signup form validation
             const signupForm = document.getElementById('signupForm');
             const signupEmail = document.getElementById('signup-email');
+            const signupUsername = document.getElementById('signup-username');
             const signupPassword = document.getElementById('signup-password');
             const signupConfirmPassword = document.getElementById('signup-confirm-password');
 
