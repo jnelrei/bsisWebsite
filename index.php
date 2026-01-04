@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="images/isss.png" rel="icon">
 
     <style>
@@ -289,348 +288,261 @@
         }
 
         @keyframes float1 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(50px, -80px) rotate(2deg);
             }
-
             50% {
                 transform: translate(-30px, -120px) rotate(-1deg);
             }
-
             75% {
                 transform: translate(80px, -40px) rotate(1deg);
             }
         }
 
         @keyframes float2 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             33% {
                 transform: translate(-60px, 70px) rotate(-2deg);
             }
-
             66% {
                 transform: translate(40px, -50px) rotate(1deg);
             }
         }
 
         @keyframes float3 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(-70px, 50px) rotate(1.5deg);
             }
-
             50% {
                 transform: translate(30px, 90px) rotate(-1.5deg);
             }
-
             75% {
                 transform: translate(-40px, -30px) rotate(0.5deg);
             }
         }
 
         @keyframes float4 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             30% {
                 transform: translate(60px, -60px) rotate(-1deg);
             }
-
             60% {
                 transform: translate(-50px, 40px) rotate(2deg);
             }
         }
 
         @keyframes float5 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             20% {
                 transform: translate(-40px, -50px) rotate(1deg);
             }
-
             40% {
                 transform: translate(70px, 60px) rotate(-1deg);
             }
-
             60% {
                 transform: translate(-30px, 80px) rotate(1.5deg);
             }
-
             80% {
                 transform: translate(50px, -40px) rotate(-0.5deg);
             }
         }
 
         @keyframes float6 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(40px, 70px) rotate(-1deg);
             }
-
             50% {
                 transform: translate(-60px, -40px) rotate(2deg);
             }
-
             75% {
                 transform: translate(30px, -60px) rotate(-1deg);
             }
         }
 
         @keyframes float7 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             30% {
                 transform: translate(-50px, 60px) rotate(1deg);
             }
-
             60% {
                 transform: translate(40px, -70px) rotate(-1.5deg);
             }
         }
 
         @keyframes float8 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(55px, -55px) rotate(-1deg);
             }
-
             50% {
                 transform: translate(-45px, 65px) rotate(1deg);
             }
-
             75% {
                 transform: translate(35px, -35px) rotate(-0.5deg);
             }
         }
 
         @keyframes float9 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             33% {
                 transform: translate(-45px, 55px) rotate(1.5deg);
             }
-
             66% {
                 transform: translate(50px, -65px) rotate(-1deg);
             }
         }
 
         @keyframes float10 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             20% {
                 transform: translate(60px, 40px) rotate(-1.5deg);
             }
-
             40% {
                 transform: translate(-35px, 75px) rotate(1deg);
             }
-
             60% {
                 transform: translate(45px, -50px) rotate(-0.5deg);
             }
-
             80% {
                 transform: translate(-25px, 30px) rotate(1deg);
             }
         }
 
         @keyframes float11 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(-70px, -50px) rotate(2deg);
             }
-
             50% {
                 transform: translate(40px, 80px) rotate(-1.5deg);
             }
-
             75% {
                 transform: translate(-30px, -40px) rotate(1deg);
             }
         }
 
         @keyframes float12 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             30% {
                 transform: translate(55px, 60px) rotate(-1deg);
             }
-
             60% {
                 transform: translate(-50px, -45px) rotate(1.5deg);
             }
         }
 
         @keyframes float13 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(-40px, 70px) rotate(1deg);
             }
-
             50% {
                 transform: translate(65px, -55px) rotate(-2deg);
             }
-
             75% {
                 transform: translate(-35px, 45px) rotate(0.5deg);
             }
         }
 
         @keyframes float14 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             20% {
                 transform: translate(50px, -60px) rotate(-1deg);
             }
-
             40% {
                 transform: translate(-60px, 50px) rotate(1.5deg);
             }
-
             60% {
                 transform: translate(35px, 70px) rotate(-0.5deg);
             }
-
             80% {
                 transform: translate(-45px, -35px) rotate(1deg);
             }
         }
 
         @keyframes float15 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             33% {
                 transform: translate(-55px, -70px) rotate(1deg);
             }
-
             66% {
                 transform: translate(70px, 45px) rotate(-1.5deg);
             }
         }
 
         @keyframes float16 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(45px, 55px) rotate(-1deg);
             }
-
             50% {
                 transform: translate(-70px, -40px) rotate(2deg);
             }
-
             75% {
                 transform: translate(30px, -60px) rotate(-0.5deg);
             }
         }
 
         @keyframes float17 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             30% {
                 transform: translate(-50px, 65px) rotate(1.5deg);
             }
-
             60% {
                 transform: translate(55px, -50px) rotate(-1deg);
             }
         }
 
         @keyframes float18 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             20% {
                 transform: translate(40px, -55px) rotate(-1deg);
             }
-
             40% {
                 transform: translate(-65px, 40px) rotate(1.5deg);
             }
-
             60% {
                 transform: translate(50px, 60px) rotate(-0.5deg);
             }
-
             80% {
                 transform: translate(-35px, -45px) rotate(1deg);
             }
@@ -638,9 +550,8 @@
 
         @media (max-width: 720px) {
             .floating-shape {
-                opacity: 0.6;
+                opacity: 0.2;
             }
-
             .floating-shape img {
                 width: 90px;
                 height: 90px;
@@ -649,9 +560,8 @@
 
         @media (max-width: 480px) {
             .floating-shape {
-                opacity: 0.5;
+                opacity: 0.15;
             }
-
             .floating-shape img {
                 width: 70px;
                 height: 70px;
@@ -742,9 +652,7 @@
         }
 
         @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
         .logo-dot {
@@ -1658,7 +1566,6 @@
         }
 
         @media (max-width: 960px) {
-
             /* Position Core Values section as container */
             #coreValuesSection {
                 position: relative;
@@ -2756,8 +2663,8 @@
             position: absolute;
             left: 50%;
             margin-left: -70px;
-            transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1),
-                opacity 0.8s ease;
+            transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                        opacity 0.8s ease;
             z-index: 1;
             will-change: transform, opacity;
             cursor: pointer;
@@ -2802,23 +2709,23 @@
                 width: 350px;
                 height: 120px;
             }
-
+            
             .partners-logo {
                 width: 120px;
                 height: 120px;
                 margin-left: -60px;
             }
-
+            
             .partners-logo-far-left {
                 transform: translateX(-180px) scale(0.85);
             }
-
+            
             .partners-logo-left {
-                transform: translateX(-120px) scale(0.75);
+                transform: translateX(-120px) scale(0.9);
             }
-
+            
             .partners-logo-right {
-                transform: translateX(120px) scale(0.75);
+                transform: translateX(120px) scale(0.9);
             }
         }
 
@@ -2827,23 +2734,23 @@
                 width: 280px;
                 height: 100px;
             }
-
+            
             .partners-logo {
                 width: 100px;
                 height: 100px;
                 margin-left: -50px;
             }
-
+            
             .partners-logo-far-left {
                 transform: translateX(-150px) scale(0.85);
             }
-
+            
             .partners-logo-left {
-                transform: translateX(-100px) scale(0.7);
+                transform: translateX(-100px) scale(0.9);
             }
-
+            
             .partners-logo-right {
-                transform: translateX(100px) scale(0.7);
+                transform: translateX(100px) scale(0.9);
             }
         }
 
@@ -3319,9 +3226,7 @@
 
         /* Responsive */
         @media (max-width: 960px) {
-
-            html,
-            body {
+            html, body {
                 overflow-x: hidden;
                 width: 100%;
                 max-width: 100%;
@@ -3331,20 +3236,6 @@
                 overflow-x: hidden;
                 width: 100%;
                 max-width: 100%;
-                background-image: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.85)), url('images/issshalf.png'),
-                    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.22), transparent 55%),
-                    radial-gradient(circle at 80% 0%, rgba(34, 197, 94, 0.18), transparent 55%),
-                    radial-gradient(circle at 0% 80%, rgba(129, 140, 248, 0.16), transparent 55%);
-                background-position: top center, top center,
-                    0% 0%, 80% 0%, 0% 80%;
-                background-repeat: no-repeat, no-repeat,
-                    no-repeat, no-repeat, no-repeat;
-                background-size: cover, contain,
-                    auto, auto, auto;
-                background-attachment: fixed, fixed,
-                    fixed, fixed, fixed;
-                background-blend-mode: normal, normal,
-                    screen, screen, screen;
             }
 
             .shell-inner {
@@ -3380,9 +3271,7 @@
 
             #loginBtn {
                 border-radius: 999px;
-                padding: 12px 20px;
-                line-height: normal;
-                min-height: auto;
+                padding: 4px 18px;
             }
 
             .hero {
@@ -3416,7 +3305,6 @@
                 margin-top: 60px;
                 margin-bottom: 8px;
                 width: 100%;
-                font-weight: bold;
                 max-width: 100%;
                 word-wrap: break-word;
                 overflow-wrap: break-word;
@@ -3469,9 +3357,7 @@
         }
 
         @media (max-width: 720px) {
-
-            html,
-            body {
+            html, body {
                 overflow-x: hidden;
                 width: 100%;
                 max-width: 100%;
@@ -3481,20 +3367,6 @@
                 overflow-x: hidden;
                 width: 100%;
                 max-width: 100%;
-                background-image: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.85)), url('images/issshalf.png'),
-                    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.22), transparent 55%),
-                    radial-gradient(circle at 80% 0%, rgba(34, 197, 94, 0.18), transparent 55%),
-                    radial-gradient(circle at 0% 80%, rgba(129, 140, 248, 0.16), transparent 55%);
-                background-position: top center, top center,
-                    0% 0%, 80% 0%, 0% 80%;
-                background-repeat: no-repeat, no-repeat,
-                    no-repeat, no-repeat, no-repeat;
-                background-size: cover, contain,
-                    auto, auto, auto;
-                background-attachment: fixed, fixed,
-                    fixed, fixed, fixed;
-                background-blend-mode: normal, normal,
-                    screen, screen, screen;
             }
 
             .shell-inner {
@@ -3534,9 +3406,7 @@
 
             #loginBtn {
                 border-radius: 999px;
-                padding: 12px 18px;
-                line-height: normal;
-                min-height: auto;
+                padding: 3px 16px;
             }
 
             .btn-primary.btn-large {
@@ -3565,7 +3435,6 @@
                 font-size: clamp(3rem, 11vw, 3.8rem);
                 line-height: 1.25;
                 letter-spacing: -0.02em;
-                font-weight: bold;
                 margin-top: 50px;
                 margin-bottom: 6px;
                 width: 100%;
@@ -3748,9 +3617,7 @@
         }
 
         @media (max-width: 480px) {
-
-            html,
-            body {
+            html, body {
                 overflow-x: hidden;
                 width: 100%;
                 max-width: 100%;
@@ -3760,20 +3627,6 @@
                 overflow-x: hidden;
                 width: 100%;
                 max-width: 100%;
-                background-image: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.85)), url('images/issshalf.png'),
-                    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.22), transparent 55%),
-                    radial-gradient(circle at 80% 0%, rgba(34, 197, 94, 0.18), transparent 55%),
-                    radial-gradient(circle at 0% 80%, rgba(129, 140, 248, 0.16), transparent 55%);
-                background-position: top center, top center,
-                    0% 0%, 80% 0%, 0% 80%;
-                background-repeat: no-repeat, no-repeat,
-                    no-repeat, no-repeat, no-repeat;
-                background-size: cover, contain,
-                    auto, auto, auto;
-                background-attachment: fixed, fixed,
-                    fixed, fixed, fixed;
-                background-blend-mode: normal, normal,
-                    screen, screen, screen;
             }
 
             .shell-inner {
@@ -3813,9 +3666,7 @@
 
             #loginBtn {
                 border-radius: 999px;
-                padding: 12px 16px;
-                line-height: normal;
-                min-height: auto;
+                padding: 3px 14px;
             }
 
             .btn-primary.btn-large {
@@ -3844,7 +3695,6 @@
                 font-size: clamp(2.8rem, 12vw, 3.5rem);
                 line-height: 1.3;
                 letter-spacing: -0.01em;
-                font-weight: bold;
                 margin-top: 55px;
                 margin-bottom: 4px;
                 width: 100%;
@@ -4214,14 +4064,13 @@
         }
 
         .form-input {
-            border-radius: 12px;
+            border-radius: 999px;
             border: 1px solid rgba(55, 65, 81, 0.9);
             background: rgba(15, 23, 42, 0.96);
             padding: 9px 12px;
             font-size: 0.88rem;
             color: var(--text-main);
             outline: none;
-            height: 40px;
         }
 
         .form-input:focus {
@@ -4232,280 +4081,6 @@
         .form-input.invalid {
             border-color: #fb7185;
             box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.7);
-        }
-
-        #loginSubmitBtn {
-            border-radius: 12px;
-            height: 40px;
-        }
-
-        .password-input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .password-input-wrapper .form-input {
-            padding-right: 45px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .password-toggle-btn {
-            position: absolute;
-            right: 15px;
-            top: 52%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--text-soft);
-            cursor: pointer;
-            padding: 6px;
-            border-radius: 4px;
-            transition: color 0.2s ease, background 0.2s ease;
-            font-size: 14px;
-            z-index: 10;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .password-toggle-btn:hover {
-            color: var(--text-main);
-            background: rgba(148, 163, 184, 0.1);
-        }
-
-        .password-toggle-btn:focus {
-            outline: 2px solid rgba(34, 197, 94, 0.5);
-            outline-offset: 2px;
-        }
-
-        /* Success Notification */
-        .success-notification {
-            position: fixed;
-            top: 60px;
-            right: 20px;
-            background: rgba(2, 6, 23, 0.9);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 16px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 1000;
-            transform: translateX(400px);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 350px;
-        }
-
-        .success-notification.show {
-            transform: translateX(0);
-        }
-
-        .success-notification .check-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: checkBounce 0.8s ease-out, checkPulse 2s infinite;
-        }
-
-        .success-notification .check-icon::before {
-            content: '✓';
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            animation: checkDraw 0.6s ease-out;
-        }
-
-        .success-notification .message {
-            flex: 1;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        @keyframes checkBounce {
-            0% {
-                transform: scale(0) rotate(-180deg);
-                opacity: 0;
-            }
-            25% {
-                transform: scale(0.5) rotate(-90deg);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.4) rotate(15deg);
-                opacity: 1;
-            }
-            75% {
-                transform: scale(0.8) rotate(-8deg);
-            }
-            85% {
-                transform: scale(1.1) rotate(3deg);
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes checkDraw {
-            0% {
-                transform: scale(0) rotate(-45deg);
-                opacity: 0;
-            }
-            30% {
-                transform: scale(0.3) rotate(-20deg);
-                opacity: 0.3;
-            }
-            60% {
-                transform: scale(1.5) rotate(5deg);
-                opacity: 0.8;
-            }
-            80% {
-                transform: scale(0.9) rotate(-2deg);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes checkPulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
-            }
-            25% {
-                box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
-            }
-            50% {
-                box-shadow: 0 0 0 12px rgba(34, 197, 94, 0);
-            }
-            75% {
-                box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.1);
-            }
-        }
-
-        /* Error Notification */
-        .error-notification {
-            position: fixed;
-            top: 60px;
-            right: 20px;
-            background: rgba(2, 6, 23, 0.9);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 16px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 1000;
-            transform: translateX(400px);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 350px;
-        }
-
-        .error-notification.show {
-            transform: translateX(0);
-        }
-
-        .error-notification .error-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: errorBounce 0.8s ease-out, errorPulse 2s infinite;
-        }
-
-        .error-notification .error-icon::before {
-            content: '✕';
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            animation: errorDraw 0.6s ease-out;
-        }
-
-        .error-notification .message {
-            flex: 1;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        @keyframes errorBounce {
-            0% {
-                transform: scale(0) rotate(180deg);
-                opacity: 0;
-            }
-            25% {
-                transform: scale(0.5) rotate(90deg);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.4) rotate(-15deg);
-                opacity: 1;
-            }
-            75% {
-                transform: scale(0.8) rotate(8deg);
-            }
-            85% {
-                transform: scale(1.1) rotate(-3deg);
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes errorDraw {
-            0% {
-                transform: scale(0) rotate(45deg);
-                opacity: 0;
-            }
-            30% {
-                transform: scale(0.3) rotate(20deg);
-                opacity: 0.3;
-            }
-            60% {
-                transform: scale(1.5) rotate(-5deg);
-                opacity: 0.8;
-            }
-            80% {
-                transform: scale(0.9) rotate(2deg);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes errorPulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
-            }
-            25% {
-                box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2);
-            }
-            50% {
-                box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
-            }
-            75% {
-                box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.1);
-            }
         }
 
         .form-error {
@@ -4558,7 +4133,6 @@
         .modal-footer-note {
             font-size: 0.78rem;
             color: var(--text-soft);
-            text-align: center;
         }
 
         @media (max-width: 480px) {
@@ -4756,69 +4330,69 @@
                 <div class="announcement-display" style="align-items: flex-start; padding: 40px;">
                     <div class="announcement-scrollable" style="width: 100%; text-align: left;">
                         <div class="announcement-items-grid">
-                            <!-- First Announcement -->
-                            <ul class="announcement-item">
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
-                                    <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">BSIS Department Orientation Week</div>
-                                </li>
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">When</div>
-                                    <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">January 15-19, 2024 | 8:00 AM - 5:00 PM</div>
-                                </li>
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">Where</div>
-                                    <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">BSIS Department Building, Room 201 & Main Auditorium</div>
-                                </li>
-                            </ul>
-
-                            <!-- Second Announcement -->
-                            <ul class="announcement-item">
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
-                                    <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">Capstone Project Proposal Submission</div>
-                                </li>
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">When</div>
-                                    <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">February 28, 2024 | Before 5:00 PM</div>
-                                </li>
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">Where</div>
-                                    <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">Student Portal (Online) or Department Office, Room 105</div>
-                                </li>
-                            </ul>
-
-                            <!-- Third Announcement -->
-                            <ul class="announcement-item">
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
-                                    <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">Midterm Examination Schedule</div>
-                                </li>
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">When</div>
-                                    <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">March 18-22, 2024 | 8:00 AM - 12:00 PM</div>
-                                </li>
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">Where</div>
-                                    <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">Assigned Classrooms - Check your schedule</div>
-                                </li>
-                            </ul>
-
-                            <!-- Fourth Announcement -->
-                            <ul class="announcement-item">
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
-                                    <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">IT Career Fair 2024</div>
-                                </li>
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">When</div>
-                                    <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">April 10, 2024 | 9:00 AM - 4:00 PM</div>
-                                </li>
-                                <li style="margin-bottom: 16px;">
-                                    <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">Where</div>
-                                    <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">College Gymnasium & Main Lobby</div>
-                                </li>
-                            </ul>
+                        <!-- First Announcement -->
+                        <ul class="announcement-item">
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">BSIS Department Orientation Week</div>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">When</div>
+                                <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">January 15-19, 2024 | 8:00 AM - 5:00 PM</div>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">Where</div>
+                                <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">BSIS Department Building, Room 201 & Main Auditorium</div>
+                            </li>
+                        </ul>
+                        
+                        <!-- Second Announcement -->
+                        <ul class="announcement-item">
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">Capstone Project Proposal Submission</div>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">When</div>
+                                <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">February 28, 2024 | Before 5:00 PM</div>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">Where</div>
+                                <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">Student Portal (Online) or Department Office, Room 105</div>
+                            </li>
+                        </ul>
+                        
+                        <!-- Third Announcement -->
+                        <ul class="announcement-item">
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">Midterm Examination Schedule</div>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">When</div>
+                                <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">March 18-22, 2024 | 8:00 AM - 12:00 PM</div>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">Where</div>
+                                <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">Assigned Classrooms - Check your schedule</div>
+                            </li>
+                        </ul>
+                        
+                        <!-- Fourth Announcement -->
+                        <ul class="announcement-item">
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">What</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); line-height: 1.5;">IT Career Fair 2024</div>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">When</div>
+                                <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">April 10, 2024 | 9:00 AM - 4:00 PM</div>
+                            </li>
+                            <li style="margin-bottom: 16px;">
+                                <div style="font-size: 0.85rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600;">Where</div>
+                                <div style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">College Gymnasium & Main Lobby</div>
+                            </li>
+                        </ul>
                         </div>
                     </div>
                 </div>
@@ -4905,57 +4479,57 @@
                 <div class="projects-carousel-wrapper">
                     <div class="projects-carousel" id="projectsCarousel">
                         <div class="projects-carousel-track" id="projectsCarouselTrack">
-                            <?php
-                            require_once __DIR__ . '/functions/db/database.php';
+<?php
+require_once __DIR__ . '/functions/db/database.php';
 
-                            $projects = [];
-                            try {
-                                $pdo = getPDO();
-                                $tableCheck = $pdo->query("SHOW TABLES LIKE 'projects'");
-                                if ($tableCheck->rowCount() > 0) {
-                                    $stmt = $pdo->prepare("SELECT project_id, student_id, title, slug, short_description, description, category, technologies, figma_url, live_demo_url, github_url, thumbnail, banner_image, is_featured, is_published, created_at, updated_at FROM projects WHERE is_published = 1 ORDER BY is_featured DESC, created_at DESC LIMIT 12");
-                                    $stmt->execute();
-                                    $projects = $stmt->fetchAll();
-                                }
-                            } catch (Exception $e) {
-                                $projects = [];
-                            }
+$projects = [];
+try {
+    $pdo = getPDO();
+    $tableCheck = $pdo->query("SHOW TABLES LIKE 'projects'");
+    if ($tableCheck->rowCount() > 0) {
+        $stmt = $pdo->prepare("SELECT project_id, student_id, title, slug, short_description, description, category, technologies, figma_url, live_demo_url, github_url, thumbnail, banner_image, is_featured, is_published, created_at, updated_at FROM projects WHERE is_published = 1 ORDER BY is_featured DESC, created_at DESC LIMIT 12");
+        $stmt->execute();
+        $projects = $stmt->fetchAll();
+    }
+} catch (Exception $e) {
+    $projects = [];
+}
 
-                            if (!empty($projects)):
-                                $delay = 1;
-                                foreach ($projects as $p):
-                                    $title = htmlspecialchars($p['title'] ?? 'Untitled Project');
-                                    $desc = htmlspecialchars($p['short_description'] ?? ($p['description'] ?? ''));
-                                    $thumb = $p['thumbnail'] ?? '';
-                                    $thumbPath = '';
-                                    if (!empty($thumb) && file_exists(__DIR__ . '/student/uploads/' . $thumb)) {
-                                        $thumbPath = 'student/uploads/' . $thumb;
-                                    }
-                                    $encodedTitle = rawurlencode($title);
-                            ?>
-                                    <article class="project-card scroll-reveal scroll-reveal-delay-<?php echo $delay; ?>">
-                                        <?php if ($thumbPath): ?>
-                                            <img src="<?php echo htmlspecialchars($thumbPath); ?>" alt="<?php echo $title; ?>" class="project-image">
-                                        <?php else: ?>
-                                            <img src="images/bsis_logo.png" alt="<?php echo $title; ?>" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3E<?php echo $encodedTitle; ?>%3C/text%3E%3C/svg%3E';">
-                                        <?php endif; ?>
-                                        <div class="project-content">
-                                            <div class="project-title"><?php echo $title; ?></div>
-                                            <div class="project-description"><?php echo $desc; ?></div>
-                                        </div>
-                                    </article>
-                                <?php
-                                    $delay = $delay % 4 + 1;
-                                endforeach;
-                            else:
-                                ?>
-                                <article class="project-card">
-                                    <div class="project-content">
-                                        <div class="project-title">No projects yet</div>
-                                        <div class="project-description">Projects will appear here when published.</div>
-                                    </div>
-                                </article>
-                            <?php endif; ?>
+if (!empty($projects)):
+    $delay = 1;
+    foreach ($projects as $p):
+        $title = htmlspecialchars($p['title'] ?? 'Untitled Project');
+        $desc = htmlspecialchars($p['short_description'] ?? ($p['description'] ?? ''));
+        $thumb = $p['thumbnail'] ?? '';
+        $thumbPath = '';
+        if (!empty($thumb) && file_exists(__DIR__ . '/student/uploads/' . $thumb)) {
+            $thumbPath = 'student/uploads/' . $thumb;
+        }
+        $encodedTitle = rawurlencode($title);
+?>
+                            <article class="project-card scroll-reveal scroll-reveal-delay-<?php echo $delay; ?>">
+                                <?php if ($thumbPath): ?>
+                                    <img src="<?php echo htmlspecialchars($thumbPath); ?>" alt="<?php echo $title; ?>" class="project-image">
+                                <?php else: ?>
+                                    <img src="images/bsis_logo.png" alt="<?php echo $title; ?>" class="project-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%231f2937%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22%3E<?php echo $encodedTitle; ?>%3C/text%3E%3C/svg%3E';">
+                                <?php endif; ?>
+                                <div class="project-content">
+                                    <div class="project-title"><?php echo $title; ?></div>
+                                    <div class="project-description"><?php echo $desc; ?></div>
+                                </div>
+                            </article>
+<?php
+        $delay = $delay % 4 + 1;
+    endforeach;
+else:
+?>
+                            <article class="project-card">
+                                <div class="project-content">
+                                    <div class="project-title">No projects yet</div>
+                                    <div class="project-description">Projects will appear here when published.</div>
+                                </div>
+                            </article>
+<?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -5133,17 +4707,12 @@
                 <div class="success-message" id="successMessage" style="display: none; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #86efac; padding: 12px 16px; border-radius: var(--radius-md); margin-bottom: 20px; font-size: 14px;"></div>
                 <form id="loginForm" autocomplete="off">
                     <div class="form-field">
-                        <label class="form-label" for="login-username">ID no.</label>
-                        <input class="form-input" type="text" id="login-username" name="username" placeholder="e.g. 20xxxxxxxx" required autocomplete="off">
+                        <label class="form-label" for="login-username">Username</label>
+                        <input class="form-input" type="text" id="login-username" name="username" placeholder="e.g. student001" required autocomplete="username">
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="login-password">Password</label>
-                        <div class="password-input-wrapper">
-                            <input class="form-input" type="password" id="login-password" name="password" placeholder="Enter your password" required autocomplete="off">
-                            <button type="button" class="password-toggle-btn" id="passwordToggleBtn" aria-label="Toggle password visibility">
-                                <i class="fa fa-eye-slash" id="passwordToggleIcon"></i>
-                            </button>
-                        </div>
+                        <input class="form-input" type="password" id="login-password" name="password" placeholder="Enter your password" required autocomplete="current-password">
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary btn-large" type="submit" id="loginSubmitBtn" style="width: 100%; justify-content: center;">
@@ -5172,23 +4741,23 @@
                 <form id="signupForm" action="functions/registration/register.php" method="post" autocomplete="off">
                     <div class="form-field">
                         <label class="form-label" for="signup-fullname">Full name</label>
-                        <input class="form-input" type="text" id="signup-fullname" name="fullname" placeholder="e.g. Juan Dela Cruz" required autocomplete="off">
+                        <input class="form-input" type="text" id="signup-fullname" name="fullname" placeholder="e.g. Juan Dela Cruz" required>
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="signup-email">Email</label>
-                        <input class="form-input" type="email" id="signup-email" name="email" placeholder="e.g. juan@example.com" required autocomplete="off">
+                        <input class="form-input" type="email" id="signup-email" name="email" placeholder="e.g. juan@example.com" required>
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="signup-username">Username</label>
-                        <input class="form-input" type="text" id="signup-username" name="username" placeholder="Choose a username" required autocomplete="off">
+                        <input class="form-input" type="text" id="signup-username" name="username" placeholder="Choose a username" required>
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="signup-password">Password</label>
-                        <input class="form-input" type="password" id="signup-password" name="password" placeholder="Create a password" required autocomplete="off">
+                        <input class="form-input" type="password" id="signup-password" name="password" placeholder="Create a password" required>
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="signup-confirm-password">Confirm password</label>
-                        <input class="form-input" type="password" id="signup-confirm-password" name="confirm_password" placeholder="Re‑enter password" required autocomplete="off">
+                        <input class="form-input" type="password" id="signup-confirm-password" name="confirm_password" placeholder="Re‑enter password" required>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary btn-large" type="submit" style="width: 100%; justify-content: center;">
@@ -5397,7 +4966,7 @@
                     dotsContainer.innerHTML = '';
                     if (cards.length === 0) return;
                     const totalSlides = Math.max(1, Math.ceil(cards.length / cardsPerView));
-
+                    
                     for (let i = 0; i < totalSlides; i++) {
                         const dot = document.createElement('button');
                         dot.className = 'carousel-dot';
@@ -5497,7 +5066,8 @@
 
             if (partnersLogosContainer && partnersNameEl && partnersDescEl) {
                 // Define all partners with their logos and info
-                const partners = [{
+                const partners = [
+                    {
                         src: 'images/coders_guild.png',
                         alt: 'Coders Guild',
                         name: 'Coders Guild',
@@ -5534,50 +5104,21 @@
                     const leftIndex = (currentMiddleIndex - 1 + partners.length) % partners.length;
                     const middleIndex = currentMiddleIndex;
                     const rightIndex = (currentMiddleIndex + 1) % partners.length;
-                    return {
-                        farLeftIndex,
-                        leftIndex,
-                        middleIndex,
-                        rightIndex
-                    };
+                    return { farLeftIndex, leftIndex, middleIndex, rightIndex };
                 }
 
                 // Create logo images
                 function createLogos() {
                     partnersLogosContainer.innerHTML = '';
-                    const {
-                        farLeftIndex,
-                        leftIndex,
-                        middleIndex,
-                        rightIndex
-                    } = getLogoIndices();
-                    const positions = [{
-                            index: farLeftIndex,
-                            className: 'partners-logo partners-logo-far-left',
-                            position: 'far-left'
-                        },
-                        {
-                            index: leftIndex,
-                            className: 'partners-logo partners-logo-left',
-                            position: 'left'
-                        },
-                        {
-                            index: middleIndex,
-                            className: 'partners-logo partners-logo-middle',
-                            position: 'middle'
-                        },
-                        {
-                            index: rightIndex,
-                            className: 'partners-logo partners-logo-right',
-                            position: 'right'
-                        }
+                    const { farLeftIndex, leftIndex, middleIndex, rightIndex } = getLogoIndices();
+                    const positions = [
+                        { index: farLeftIndex, className: 'partners-logo partners-logo-far-left', position: 'far-left' },
+                        { index: leftIndex, className: 'partners-logo partners-logo-left', position: 'left' },
+                        { index: middleIndex, className: 'partners-logo partners-logo-middle', position: 'middle' },
+                        { index: rightIndex, className: 'partners-logo partners-logo-right', position: 'right' }
                     ];
 
-                    positions.forEach(({
-                        index,
-                        className,
-                        position
-                    }) => {
+                    positions.forEach(({ index, className, position }) => {
                         const img = document.createElement('img');
                         img.src = partners[index].src;
                         img.alt = partners[index].alt;
@@ -5585,7 +5126,7 @@
                         img.style.cursor = 'pointer';
                         img.setAttribute('data-partner-index', index);
                         img.setAttribute('data-position', position);
-
+                        
                         // Add click handler to make circles clickable
                         img.addEventListener('click', function() {
                             const clickedIndex = parseInt(this.getAttribute('data-partner-index'));
@@ -5605,7 +5146,7 @@
                                 rotateToTarget(clickedIndex);
                             }
                         });
-
+                        
                         img.onerror = function() {
                             this.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Ccircle fill=%22%231f2937%22 cx=%2260%22 cy=%2260%22 r=%2260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%229ca3af%22 font-family=%22sans-serif%22 font-size=%2212%22%3EPartner%3C/text%3E%3C/svg%3E';
                         };
@@ -5615,22 +5156,20 @@
 
                 // Update partner display (name and description) with smooth fade effect
                 function updatePartnerDisplay() {
-                    const {
-                        middleIndex
-                    } = getLogoIndices();
+                    const { middleIndex } = getLogoIndices();
                     const currentPartner = partners[middleIndex];
-
+                    
                     // Fade out current content
                     partnersNameEl.classList.remove('fade-in');
                     partnersNameEl.classList.add('fade-out');
                     partnersDescEl.classList.remove('fade-in');
                     partnersDescEl.classList.add('fade-out');
-
+                    
                     // Update content after fade out
                     setTimeout(() => {
                         partnersNameEl.textContent = currentPartner.name;
                         partnersDescEl.textContent = currentPartner.description;
-
+                        
                         // Fade in new content
                         partnersNameEl.classList.remove('fade-out');
                         partnersNameEl.classList.add('fade-in');
@@ -5661,46 +5200,46 @@
                     const isMobile = window.innerWidth <= 720;
                     const translateDistance = isMobile ? (window.innerWidth <= 480 ? 100 : 120) : 140;
                     const farDistance = isMobile ? (window.innerWidth <= 480 ? 150 : 180) : 210;
-
+                    
                     if (direction === 'next') {
                         currentMiddleIndex = (currentMiddleIndex + 1) % partners.length;
-
+                        
                         // Animate: right logo moves to middle, middle moves to left, left moves to far-left (hidden)
                         logos[3].style.transform = 'translateX(0) scale(1)';
                         logos[3].style.zIndex = '3';
                         logos[3].style.opacity = '1';
-
+                        
                         logos[2].style.transform = `translateX(-${translateDistance}px) scale(0.75)`;
                         logos[2].style.zIndex = '2';
                         logos[2].style.opacity = '0.8';
-
+                        
                         // Hide the circle that's moving to the left/far-left position
                         logos[1].style.transform = `translateX(-${farDistance}px) scale(0.85)`;
                         logos[1].style.zIndex = '0';
                         logos[1].style.opacity = '0';
                         logos[1].style.pointerEvents = 'none';
-
+                        
                         // Hide the far-left circle
                         logos[0].style.opacity = '0';
                         logos[0].style.zIndex = '0';
                         logos[0].style.pointerEvents = 'none';
                     } else {
                         currentMiddleIndex = (currentMiddleIndex - 1 + partners.length) % partners.length;
-
+                        
                         // Animate: left logo moves to middle, middle moves to right, right moves to far-right and fades out
                         logos[1].style.transform = 'translateX(0) scale(1)';
                         logos[1].style.zIndex = '3';
                         logos[1].style.opacity = '1';
-
+                        
                         logos[2].style.transform = `translateX(${translateDistance}px) scale(0.75)`;
                         logos[2].style.zIndex = '2';
                         logos[2].style.opacity = '0.8';
-
+                        
                         // Right logo slides further right first (wrapping around)
                         logos[3].style.transform = `translateX(${farDistance}px) scale(0.85)`;
                         logos[3].style.zIndex = '1';
                         logos[3].style.opacity = '0.7';
-
+                        
                         // Then fade it out after reaching the position
                         setTimeout(() => {
                             if (logos[3]) {
@@ -5709,7 +5248,7 @@
                                 logos[3].style.pointerEvents = 'none';
                             }
                         }, 400);
-
+                        
                         // Far-left logo stays hidden
                         logos[0].style.transform = `translateX(-${farDistance}px) scale(0.85)`;
                         logos[0].style.zIndex = '0';
@@ -5837,7 +5376,7 @@
                 // Show Core Values section on the left side after hero-right returns to right (12.5s + 2s transition = 14.5s)
                 const coreValuesSection = document.getElementById('coreValuesSection');
                 const cultureSection = document.getElementById('cultureSection');
-
+                
                 if (coreValuesSection) {
                     setTimeout(() => {
                         coreValuesSection.classList.add('visible');
@@ -5858,7 +5397,7 @@
                         cultureSection.style.transition = 'opacity 1s ease-out, transform 1s ease-out, visibility 1s ease-out';
                         cultureSection.style.visibility = 'visible';
                         cultureSection.classList.add('visible');
-
+                        
                         // Hide CULTURE section after 5 seconds (20.5s + 5s = 25.5s)
                         setTimeout(() => {
                             cultureSection.style.transition = 'opacity 1s ease-out, transform 1s ease-out, visibility 1s ease-out';
@@ -5906,7 +5445,7 @@
 
                     // Initial positioning
                     positionCultureSection();
-
+                    
                     // Reposition on resize
                     window.addEventListener('resize', positionCultureSection);
 
@@ -5955,11 +5494,11 @@
                                 const viewportHeight = window.innerHeight;
                                 const nav = document.querySelector('.nav');
                                 const navHeight = nav ? nav.offsetHeight : 0;
-
+                                
                                 // Calculate position to center the section in viewport
                                 // Account for navbar height
                                 const centerPosition = sectionTop - (viewportHeight / 2) + (sectionHeight / 2) - (navHeight / 2);
-
+                                
                                 window.scrollTo({
                                     top: Math.max(0, centerPosition),
                                     behavior: 'smooth'
@@ -6004,20 +5543,20 @@
 
             // Smooth scroll for anchor links with offset for sticky navbar
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
                     if (href === '#' || href === '#!') return;
-
+                    
                     const targetId = href.substring(1);
                     const targetElement = document.getElementById(targetId);
-
+                    
                     if (targetElement) {
                         e.preventDefault();
                         const navHeight = document.querySelector('.nav')?.offsetHeight || 0;
                         const navTop = parseInt(window.getComputedStyle(document.querySelector('.nav')).top) || 0;
                         const offset = navHeight + navTop + 80; // 80px extra padding to move down more
                         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-
+                        
                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
@@ -6048,7 +5587,7 @@
 
             // Search button functionality
             const searchBtn = document.getElementById('searchBtn');
-
+            
             // Function to smoothly close search input
             function closeSearchInput() {
                 const searchInput = document.getElementById('navbarSearchInput');
@@ -6067,7 +5606,7 @@
                     }, 300); // Wait for animation to complete
                 }
             }
-
+            
             if (searchBtn) {
                 searchBtn.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -6080,7 +5619,7 @@
                         searchInput.id = 'navbarSearchInput';
                         searchInput.placeholder = 'Search...';
                         searchInput.className = 'navbar-search-input';
-
+                        
                         // On mobile, append to nav container; on desktop, insert before search button
                         const nav = searchBtn.closest('.nav');
                         if (nav && window.matchMedia('(max-width: 960px)').matches) {
@@ -6088,7 +5627,7 @@
                         } else {
                             searchBtn.parentNode.insertBefore(searchInput, searchBtn);
                         }
-
+                        
                         // Trigger smooth animation by adding active class after a brief delay
                         setTimeout(() => {
                             searchInput.classList.add('active');
@@ -6099,7 +5638,7 @@
                                 nav.classList.add('search-active');
                             }
                         }, 10);
-
+                        
                         // Handle search on Enter key
                         searchInput.addEventListener('keydown', (event) => {
                             if (event.key === 'Enter') {
@@ -6115,14 +5654,14 @@
                                 closeSearchInput();
                             }
                         });
-
+                        
                         // Remove search input when clicking outside
                         setTimeout(() => {
                             document.addEventListener('click', function removeSearchInput(e) {
                                 const isMobile = window.matchMedia('(max-width: 960px)').matches;
                                 const nav = searchBtn.closest('.nav');
                                 const clickedInsideNav = nav && nav.contains(e.target);
-
+                                
                                 if (!searchInput.contains(e.target) && e.target !== searchBtn && (!isMobile || !clickedInsideNav)) {
                                     closeSearchInput();
                                     document.removeEventListener('click', removeSearchInput);
@@ -6190,25 +5729,6 @@
             const loginSubmitBtn = document.getElementById('loginSubmitBtn');
             const errorMessage = document.getElementById('errorMessage');
             const successMessage = document.getElementById('successMessage');
-            const passwordToggleBtn = document.getElementById('passwordToggleBtn');
-            const passwordToggleIcon = document.getElementById('passwordToggleIcon');
-
-            // Password toggle functionality
-            if (passwordToggleBtn && passwordToggleIcon && loginPassword) {
-                passwordToggleBtn.addEventListener('click', function() {
-                    const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-                    loginPassword.setAttribute('type', type);
-                    
-                    // Toggle icon
-                    if (type === 'text') {
-                        passwordToggleIcon.classList.remove('fa-eye-slash');
-                        passwordToggleIcon.classList.add('fa-eye');
-                    } else {
-                        passwordToggleIcon.classList.remove('fa-eye');
-                        passwordToggleIcon.classList.add('fa-eye-slash');
-                    }
-                });
-            }
 
             function hideMessages() {
                 if (errorMessage) errorMessage.style.display = 'none';
@@ -6216,59 +5736,19 @@
             }
 
             function showError(message) {
-                // Create error notification element
-                const notification = document.createElement('div');
-                notification.className = 'error-notification';
-                notification.innerHTML = `
-                    <div class="error-icon"></div>
-                    <div class="message">${message}</div>
-                `;
-                
-                // Add to body
-                document.body.appendChild(notification);
-                
-                // Trigger animation
-                setTimeout(() => {
-                    notification.classList.add('show');
-                }, 100);
-                
-                // Auto remove after 4 seconds
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                }, 4000);
+                if (errorMessage) {
+                    errorMessage.textContent = message;
+                    errorMessage.style.display = 'block';
+                    if (successMessage) successMessage.style.display = 'none';
+                }
             }
 
             function showSuccess(message) {
-                // Create notification element
-                const notification = document.createElement('div');
-                notification.className = 'success-notification';
-                notification.innerHTML = `
-                    <div class="check-icon"></div>
-                    <div class="message">${message}</div>
-                `;
-                
-                // Add to body
-                document.body.appendChild(notification);
-                
-                // Trigger animation
-                setTimeout(() => {
-                    notification.classList.add('show');
-                }, 100);
-                
-                // Auto remove after 3 seconds
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                }, 3000);
+                if (successMessage) {
+                    successMessage.textContent = message;
+                    successMessage.style.display = 'block';
+                    if (errorMessage) errorMessage.style.display = 'none';
+                }
             }
 
             function setLoading(loading) {
@@ -6359,7 +5839,7 @@
                                 showSuccess('Login successful! Redirecting...');
                                 setTimeout(() => {
                                     window.location.href = saData.redirect || 'superadmin/dashboard/main.php';
-                                }, 2500);
+                                }, 800);
                                 return;
                             }
                         }
@@ -6381,9 +5861,7 @@
                             try {
                                 errorData = await response.json();
                             } catch (e) {
-                                errorData = {
-                                    message: `HTTP Error ${response.status}: ${response.statusText}`
-                                };
+                                errorData = { message: `HTTP Error ${response.status}: ${response.statusText}` };
                             }
                             throw new Error(errorData.message || errorData.error || 'An error occurred');
                         }
@@ -6407,7 +5885,7 @@
                             await setSession(data.data);
                             setTimeout(() => {
                                 window.location.href = redirectUrl;
-                            }, 2500);
+                            }, 1000);
                         } else {
                             showError(data.message || 'Invalid username or password.');
                             setLoading(false);
@@ -6633,7 +6111,7 @@
             } else {
                 initBackToTop();
             }
-
+            
             function initBackToTop() {
                 const backToTopBtn = document.createElement('button');
                 backToTopBtn.className = 'back-to-top';
@@ -6657,9 +6135,7 @@
                     });
                 });
 
-                window.addEventListener('scroll', toggleBackToTop, {
-                    passive: true
-                });
+                window.addEventListener('scroll', toggleBackToTop, { passive: true });
                 toggleBackToTop(); // Check initial state
             }
         })();
