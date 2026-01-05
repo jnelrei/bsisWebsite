@@ -179,9 +179,12 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($fullname); ?> - Portfolio</title>
+    <link href="../images/isss.png" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script type="module">
         import { removeBackground } from 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.0.0/dist/index.js';
@@ -281,6 +284,63 @@ try {
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(148, 163, 184, 0.25);
             box-shadow: 0 18px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .nav {
+            border-color: rgba(148, 163, 184, 0.4);
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+            backdrop-filter: blur(20px);
+        }
+
+        [data-theme="light"] .btn-ghost {
+            border-color: rgba(148, 163, 184, 0.4);
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+            color: #1a1a1a;
+        }
+
+        [data-theme="light"] .btn-ghost:hover {
+            border-color: rgba(148, 163, 184, 0.6);
+            background: rgba(148, 163, 184, 0.1);
+            color: #1a1a1a;
+        }
+
+        [data-theme="light"] .dropdown-toggle {
+            border-color: rgba(148, 163, 184, 0.4);
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+            color: #1a1a1a;
+        }
+
+        [data-theme="light"] .dropdown-menu {
+            background: radial-gradient(circle at top left, rgba(219, 234, 254, 0.95), rgba(191, 219, 254, 0.98));
+            backdrop-filter: blur(20px);
+            border-color: rgba(148, 163, 184, 0.3);
+        }
+
+        [data-theme="light"] .dropdown-item {
+            color: #1a1a1a;
+        }
+
+        [data-theme="light"] .dropdown-item:hover {
+            background: rgba(148, 163, 184, 0.1);
+            color: #1a1a1a;
+        }
+
+        [data-theme="light"] .nav-links a {
+            color: #000000;
+        }
+
+        [data-theme="light"] .nav-links a:hover {
+            color: #1a1a1a;
+            border-color: rgba(148, 163, 184, 0.6);
+            background: rgba(148, 163, 184, 0.1);
+        }
+
+        [data-theme="light"] .logo-text-main .letter {
+            color: #1a1a1a;
+        }
+
+        [data-theme="light"] .logo-dot {
+            color: #16a34a;
         }
 
         [data-theme="light"] .project-card {
@@ -754,71 +814,37 @@ try {
             background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1));
         }
 
-        #userDropdown {
+        .user-name {
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 18px;
+            border-radius: var(--radius-pill);
             border: 1px solid rgba(148, 163, 184, 0.3);
+            background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
         }
 
-        #searchBtn {
-            border: none;
+        .user-name:hover {
+            color: var(--accent-strong);
+            border-color: rgba(34, 197, 94, 0.5);
+            background: rgba(15, 23, 42, 0.8);
         }
 
-        #searchBtn:hover {
-            border: none;
+        [data-theme="light"] .user-name {
+            color: #1a1a1a;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+            border-color: rgba(148, 163, 184, 0.4);
         }
 
-        .navbar-search-input {
-            width: 0;
-            opacity: 0;
-            padding: 8px 0 !important;
-            border: 1px solid rgba(148, 163, 184, 0.3) !important;
-            border-radius: 6px !important;
-            background: var(--bg-primary) !important;
-            color: var(--text-main) !important;
-            font-size: 0.9rem !important;
-            outline: none !important;
-            transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease !important;
-            overflow: hidden;
+        [data-theme="light"] .user-name:hover {
+            color: #16a34a;
+            border-color: rgba(148, 163, 184, 0.6);
+            background: rgba(148, 163, 184, 0.1);
         }
 
-        .navbar-search-input.active {
-            width: 250px;
-            opacity: 1;
-            padding: 8px 16px !important;
-        }
-
-        /* Mobile search bar pop-out below navbar */
-        @media (max-width: 960px) {
-            .navbar-search-input {
-                position: absolute !important;
-                top: 100% !important;
-                left: 16px !important;
-                right: 16px !important;
-                width: calc(100% - 32px) !important;
-                max-width: none !important;
-                margin-top: 12px !important;
-                padding: 12px 16px !important;
-                border-radius: 12px !important;
-                background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.94)) !important;
-                backdrop-filter: blur(22px) !important;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
-                transform: translateY(-10px) !important;
-                opacity: 0 !important;
-                pointer-events: none !important;
-                z-index: 50 !important;
-            }
-
-            .navbar-search-input.active {
-                width: calc(100% - 32px) !important;
-                opacity: 1 !important;
-                transform: translateY(0) !important;
-                pointer-events: auto !important;
-                transition: opacity 0.3s ease, transform 0.3s ease !important;
-            }
-
-            .nav {
-                position: relative !important;
-            }
-        }
 
         .btn-icon-circle {
             width: 22px;
@@ -830,63 +856,8 @@ try {
             font-size: 15px;
         }
 
-        /* Theme Toggle Switch */
-        .theme-toggle {
-            position: relative;
-            width: 60px;
-            height: 32px;
-            background: rgba(148, 163, 184, 0.2);
-            border-radius: var(--radius-pill);
-            border: 1px solid rgba(148, 163, 184, 0.3);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            display: flex;
-            align-items: center;
-            padding: 3px;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
 
-        .theme-toggle:hover {
-            border-color: rgba(34, 197, 94, 0.5);
-            background: rgba(34, 197, 94, 0.1);
-        }
-
-        .theme-toggle-slider {
-            width: 26px;
-            height: 26px;
-            background: linear-gradient(135deg, #22c55e, #0ea5e9);
-            border-radius: 50%;
-            transition: transform var(--transition-normal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .theme-toggle-slider::before {
-            content: '🌙';
-            font-size: 14px;
-            transition: opacity var(--transition-fast);
-        }
-
-        [data-theme="light"] .theme-toggle-slider {
-            transform: translateX(28px);
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-        }
-
-        [data-theme="light"] .theme-toggle-slider::before {
-            content: '☀️';
-        }
-
-        .theme-toggle-label {
-            display: none;
-        }
-
-        
-        
         .cta-button {
-            background: linear-gradient(135deg, #22c55e, #0ea5e9);
             color: var(--bg-main);
             padding: 10px 18px;
             border-radius: var(--radius-pill);
@@ -904,77 +875,6 @@ try {
             box-shadow: 0 0 40px rgba(34, 197, 94, 0.7);
         }
 
-        /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-toggle {
-            cursor: pointer;
-            border: none;
-            outline: none;
-            white-space: nowrap;
-        }
-
-        .dropdown-toggle::after {
-            content: ' ▼';
-            font-size: 10px;
-            margin-left: 5px;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            margin-top: 10px;
-            background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 1));
-            border: 1px solid rgba(148, 163, 184, 0.3);
-            border-radius: 8px;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
-            width: 100%;
-            z-index: 1000;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(-10px) scale(0.95);
-            transition: all var(--transition-normal);
-        }
-
-        .dropdown-menu.show {
-            display: block;
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .dropdown-item {
-            display: block;
-            padding: 12px 20px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all var(--transition-normal);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-            will-change: background, color, transform;
-        }
-
-        .dropdown-item:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-item:hover {
-            background: rgba(34, 197, 94, 0.15);
-            color: var(--accent-strong);
-            transform: translateX(4px);
-        }
-
-        .dropdown-divider {
-            height: 1px;
-            background: rgba(148, 163, 184, 0.3);
-            margin: 5px 0;
-        }
 
         /* Hero Section */
         .hero {
@@ -1087,6 +987,7 @@ try {
             overflow-wrap: break-word;
             word-wrap: break-word;
             hyphens: auto;
+            margin-top: 20px;
         }
 
         .hero-title .highlight {
@@ -1297,7 +1198,7 @@ try {
             animation: fadeInRight 0.8s ease-out 0.2s both;
             width: 100%;
             max-width: 100%;
-            margin-top: -100px;
+            margin-top: -120px;
         }
 
         @keyframes fadeInRight {
@@ -1314,12 +1215,13 @@ try {
         .hero-image::before {
             content: '';
             position: absolute;
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(14, 165, 233, 0.2));
-            filter: blur(40px);
+            width: 400px;
+            height: 500px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(14, 165, 233, 0.1));
             z-index: -1;
+            opacity: 0.5;
+            transform: scale(1);
             animation: pulseGlow 3s ease-in-out infinite;
         }
 
@@ -1335,15 +1237,15 @@ try {
         }
 
         .hero-image img {
-            width: 380px;
-            height: 380px;
+            width: 360px;
+            height: 460px;
             max-width: 100%;
             max-height: 100%;
-            border-radius: 50%;
+            border-radius: 20px;
             object-fit: cover;
             border: 5px solid transparent;
             background: linear-gradient(var(--bg-main), var(--bg-main)) padding-box,
-                        linear-gradient(135deg, #22c55e, #0ea5e9, #a855f7, #22c55e) border-box;
+                        linear-gradient(135deg, var(--accent), var(--accent-alt), var(--accent)) border-box;
             background-clip: padding-box, border-box;
             background-size: 200% 200%;
             position: relative;
@@ -2351,7 +2253,7 @@ try {
 
         /* Footer Section */
         .footer {
-            padding: 60px 80px 30px;
+            padding: 0px 80px 0px;
             background: transparent;
             border-top: 1px solid rgba(148, 163, 184, 0.3);
         }
@@ -2455,10 +2357,10 @@ try {
         }
 
         .footer-bottom {
-            padding-top: 30px;
+            padding-top: 10px;
             border-top: 1px solid rgba(148, 163, 184, 0.2);
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
@@ -3893,11 +3795,1120 @@ try {
                 justify-content: center;
             }
         }
+
+        /* Floating Background Animation - Code Snippets */
+        .blur-orb {
+            position: fixed;
+            inset: auto auto 10% -10%;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.16), transparent 60%);
+            filter: blur(40px);
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 720px) {
+            .blur-orb {
+                width: 300px;
+                height: 300px;
+                opacity: 0.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blur-orb {
+                width: 200px;
+                height: 200px;
+                opacity: 0.4;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .floating-shape {
+            position: absolute;
+            user-select: none;
+            transform-origin: center;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Programming Language Icons - Both Modes */
+        .code-icon {
+            opacity: 0.08;
+            transition: opacity 0.5s ease;
+        }
+
+        .code-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            filter: brightness(0.7) contrast(1.1);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Light Mode - Slightly brighter code icons */
+        [data-theme="light"] .code-icon {
+            opacity: 0.06;
+        }
+
+        [data-theme="light"] .code-icon img {
+            filter: brightness(0.9) contrast(1.05);
+        }
+
+        /* Realistic Stars - Dark Mode */
+        .star {
+            width: 0;
+            height: 0;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .star::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 0 6px rgba(255, 255, 255, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.6),
+                0 0 18px rgba(255, 255, 255, 0.4),
+                0 0 24px rgba(255, 255, 255, 0.2);
+        }
+
+        .star::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.8) 45%, 
+                white 50%, 
+                rgba(255, 255, 255, 0.8) 55%, 
+                transparent 100%);
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        /* Different star sizes and variations */
+        .star-1::before { width: 5px; height: 5px; }
+        .star-1::after { width: 2.5px; height: 20px; }
+        
+        .star-2::before { width: 7px; height: 7px; }
+        .star-2::after { width: 3px; height: 30px; }
+        
+        .star-3::before { width: 4px; height: 4px; }
+        .star-3::after { width: 2px; height: 18px; }
+        
+        .star-4::before { width: 6px; height: 6px; }
+        .star-4::after { width: 2.5px; height: 24px; }
+        
+        .star-5::before { width: 8px; height: 8px; }
+        .star-5::after { width: 3.5px; height: 35px; }
+        
+        .star-6::before { width: 5px; height: 5px; }
+        .star-6::after { width: 2.5px; height: 22px; }
+        
+        .star-7::before { width: 6px; height: 6px; }
+        .star-7::after { width: 3px; height: 26px; }
+        
+        .star-8::before { width: 4.5px; height: 4.5px; }
+        .star-8::after { width: 2px; height: 19px; }
+
+        /* Realistic Clouds - Light Mode */
+        .cloud {
+            width: 100px;
+            height: 40px;
+            background: linear-gradient(to right, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                rgba(255, 255, 255, 0.9) 50%, 
+                rgba(255, 255, 255, 0.8) 100%);
+            border-radius: 100px;
+            position: relative;
+            opacity: 0;
+            filter: blur(1px);
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(to right, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                rgba(255, 255, 255, 0.9) 50%, 
+                rgba(255, 255, 255, 0.8) 100%);
+            border-radius: 100px;
+        }
+
+        .cloud::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+
+        /* Different cloud sizes */
+        .cloud-1 { width: 120px; height: 45px; }
+        .cloud-1::before { width: 60px; height: 60px; top: -30px; }
+        .cloud-1::after { width: 70px; height: 45px; top: -18px; }
+
+        .cloud-2 { width: 90px; height: 35px; }
+        .cloud-2::before { width: 45px; height: 45px; top: -22px; }
+        .cloud-2::after { width: 55px; height: 35px; top: -12px; }
+
+        .cloud-3 { width: 110px; height: 42px; }
+        .cloud-3::before { width: 55px; height: 55px; top: -27px; }
+        .cloud-3::after { width: 65px; height: 42px; top: -16px; }
+
+        .cloud-4 { width: 95px; height: 38px; }
+        .cloud-4::before { width: 48px; height: 48px; top: -24px; }
+        .cloud-4::after { width: 58px; height: 38px; top: -14px; }
+
+        /* Realistic Sun - Light Mode */
+        .sun {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, 
+                #fff8dc 0%, 
+                #ffd700 30%, 
+                #ffb347 60%, 
+                #ff8c00 100%);
+            border-radius: 50%;
+            position: relative;
+            opacity: 0;
+            box-shadow: 
+                0 0 60px rgba(255, 215, 0, 0.8),
+                0 0 100px rgba(255, 215, 0, 0.6),
+                0 0 150px rgba(255, 215, 0, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .sun::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, 
+                transparent 30%, 
+                rgba(255, 215, 0, 0.3) 50%, 
+                transparent 70%);
+            border-radius: 50%;
+            animation: sunRays 20s linear infinite;
+        }
+
+        /* Realistic Moon - Dark Mode */
+        .moon {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 30% 30%, 
+                #f4f4f4 0%, 
+                #e8e8e8 20%, 
+                #d0d0d0 50%, 
+                #b8b8b8 80%, 
+                #a0a0a0 100%);
+            border-radius: 50%;
+            position: relative;
+            opacity: 0;
+            box-shadow: 
+                0 0 40px rgba(255, 255, 255, 0.5),
+                0 0 80px rgba(255, 255, 255, 0.3),
+                0 0 120px rgba(255, 255, 255, 0.1),
+                inset -10px -10px 20px rgba(0, 0, 0, 0.2),
+                inset 5px 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            background: rgba(160, 160, 160, 0.7);
+            border-radius: 50%;
+            box-shadow: 
+                20px 10px 0 5px rgba(160, 160, 160, 0.6),
+                35px 25px 0 3px rgba(160, 160, 160, 0.5),
+                15px 30px 0 4px rgba(160, 160, 160, 0.6),
+                40px 5px 0 2px rgba(160, 160, 160, 0.4);
+        }
+
+        .moon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, 
+                transparent 40%, 
+                rgba(255, 255, 255, 0.1) 60%, 
+                transparent 80%);
+            border-radius: 50%;
+            animation: moonGlow 8s ease-in-out infinite;
+        }
+
+        /* Dark Mode - Show Stars and Moon, Hide Clouds/Sun */
+        .star {
+            opacity: 0.8;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .moon {
+            opacity: 0.9;
+            animation: moonFloat 40s ease-in-out infinite;
+        }
+
+        .cloud,
+        .sun {
+            opacity: 0;
+        }
+
+        /* Light Mode - Show Clouds/Sun, Hide Stars and Moon */
+        [data-theme="light"] .star {
+            opacity: 0;
+        }
+
+        [data-theme="light"] .moon {
+            opacity: 0;
+        }
+
+        [data-theme="light"] .cloud {
+            opacity: 0.8;
+            background: linear-gradient(to right, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(255, 255, 255, 1) 50%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
+
+        [data-theme="light"] .cloud::before,
+        [data-theme="light"] .cloud::after {
+            background: linear-gradient(to right, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(255, 255, 255, 1) 50%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
+
+        [data-theme="light"] .sun {
+            opacity: 0.9;
+            filter: brightness(1.2);
+            animation: sunGlow 4s ease-in-out infinite;
+        }
+
+        /* Star Twinkle Animation */
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Sun Rays Animation */
+        @keyframes sunRays {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Sun Glow Animation */
+        @keyframes sunGlow {
+            0%, 100% {
+                filter: brightness(1.2);
+                transform: scale(1);
+            }
+            50% {
+                filter: brightness(1.4);
+                transform: scale(1.05);
+            }
+        }
+
+        .floating-shape img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: brightness(0.7) contrast(1.1);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Positioning for Code Icons (Both Modes) */
+        .floating-shape:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation: float1 25s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation: float2 30s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(3) {
+            top: 30%;
+            left: 70%;
+            animation: float3 22s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(4) {
+            top: 80%;
+            left: 20%;
+            animation: float4 28s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(5) {
+            top: 50%;
+            left: 10%;
+            animation: float5 26s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(6) {
+            top: 20%;
+            left: 50%;
+            animation: float6 24s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(7) {
+            top: 70%;
+            left: 60%;
+            animation: float7 27s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(8) {
+            top: 40%;
+            left: 15%;
+            animation: float8 23s ease-in-out infinite;
+        }
+
+        /* Positioning for Stars (Dark Mode) */
+        .floating-shape:nth-child(9) {
+            top: 15%;
+            left: 25%;
+            animation: float9 29s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(10) {
+            top: 75%;
+            left: 85%;
+            animation: float10 25s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(11) {
+            top: 35%;
+            left: 45%;
+            animation: float11 31s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(12) {
+            top: 55%;
+            left: 35%;
+            animation: float12 27s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(13) {
+            top: 25%;
+            left: 75%;
+            animation: float13 29s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(14) {
+            top: 65%;
+            left: 55%;
+            animation: float14 23s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(15) {
+            top: 45%;
+            left: 65%;
+            animation: float15 25s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(16) {
+            top: 85%;
+            left: 45%;
+            animation: float16 30s ease-in-out infinite;
+        }
+
+        /* Positioning for Moon (Dark Mode) */
+        .floating-shape:nth-child(17) {
+            top: 15%;
+            left: 85%;
+            animation: moonFloat 40s ease-in-out infinite;
+        }
+
+        /* Positioning for Clouds (Light Mode) */
+        .floating-shape:nth-child(18) {
+            top: 25%;
+            left: 35%;
+            animation: float18 25s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(19) {
+            top: 45%;
+            left: 75%;
+            animation: float19 31s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(20) {
+            top: 65%;
+            left: 25%;
+            animation: float20 27s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(21) {
+            top: 35%;
+            left: 15%;
+            animation: float21 29s ease-in-out infinite;
+        }
+
+        /* Positioning for Sun (Light Mode) */
+        .floating-shape:nth-child(22) {
+            top: 10%;
+            left: 50%;
+            animation: sunFloat 35s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, -80px) rotate(2deg);
+            }
+            50% {
+                transform: translate(-30px, -120px) rotate(-1deg);
+            }
+            75% {
+                transform: translate(80px, -40px) rotate(1deg);
+            }
+        }
+
+        @keyframes float2 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-60px, 70px) rotate(-2deg);
+            }
+            66% {
+                transform: translate(40px, -50px) rotate(1deg);
+            }
+        }
+
+        @keyframes float3 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(-70px, 50px) rotate(1.5deg);
+            }
+            50% {
+                transform: translate(30px, 90px) rotate(-1.5deg);
+            }
+            75% {
+                transform: translate(-40px, -30px) rotate(0.5deg);
+            }
+        }
+
+        @keyframes float4 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            30% {
+                transform: translate(60px, -60px) rotate(-1deg);
+            }
+            60% {
+                transform: translate(-50px, 40px) rotate(2deg);
+            }
+        }
+
+        @keyframes float5 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            20% {
+                transform: translate(-40px, -50px) rotate(1deg);
+            }
+            40% {
+                transform: translate(70px, 60px) rotate(-1deg);
+            }
+            60% {
+                transform: translate(-30px, 80px) rotate(1.5deg);
+            }
+            80% {
+                transform: translate(50px, -40px) rotate(-0.5deg);
+            }
+        }
+
+        @keyframes float6 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(40px, 70px) rotate(-1deg);
+            }
+            50% {
+                transform: translate(-60px, -40px) rotate(2deg);
+            }
+            75% {
+                transform: translate(30px, -60px) rotate(-1deg);
+            }
+        }
+
+        @keyframes float7 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            30% {
+                transform: translate(-50px, 60px) rotate(1deg);
+            }
+            60% {
+                transform: translate(40px, -70px) rotate(-1.5deg);
+            }
+        }
+
+        @keyframes float8 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(55px, -55px) rotate(-1deg);
+            }
+            50% {
+                transform: translate(-45px, 65px) rotate(1deg);
+            }
+            75% {
+                transform: translate(35px, -35px) rotate(-0.5deg);
+            }
+        }
+
+        @keyframes float9 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-45px, 55px) rotate(1.5deg);
+            }
+            66% {
+                transform: translate(50px, -65px) rotate(-1deg);
+            }
+        }
+
+        @keyframes float10 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            20% {
+                transform: translate(60px, 40px) rotate(-1.5deg);
+            }
+            40% {
+                transform: translate(-35px, 75px) rotate(1deg);
+            }
+            60% {
+                transform: translate(45px, -50px) rotate(-0.5deg);
+            }
+            80% {
+                transform: translate(-25px, 30px) rotate(1deg);
+            }
+        }
+
+        @keyframes float11 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(-70px, -50px) rotate(2deg);
+            }
+            50% {
+                transform: translate(40px, 80px) rotate(-1.5deg);
+            }
+            75% {
+                transform: translate(-30px, -40px) rotate(1deg);
+            }
+        }
+
+        @keyframes float12 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            30% {
+                transform: translate(55px, 60px) rotate(-1deg);
+            }
+            60% {
+                transform: translate(-50px, -45px) rotate(1.5deg);
+            }
+        }
+
+        @keyframes sunFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(100px, -30px) rotate(5deg) scale(1.05);
+            }
+            50% {
+                transform: translate(-80px, 60px) rotate(-3deg) scale(1.1);
+            }
+            75% {
+                transform: translate(60px, 40px) rotate(2deg) scale(1.05);
+            }
+        }
+
+        @keyframes moonFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(-80px, 40px) rotate(-2deg) scale(1.02);
+            }
+            50% {
+                transform: translate(60px, -60px) rotate(3deg) scale(1.05);
+            }
+            75% {
+                transform: translate(-40px, 30px) rotate(-1deg) scale(1.02);
+            }
+        }
+
+        @keyframes moonGlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        @keyframes float13 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(-45px, 35px) rotate(1deg);
+            }
+            50% {
+                transform: translate(30px, -45px) rotate(-1deg);
+            }
+            75% {
+                transform: translate(-25px, 25px) rotate(0.5deg);
+            }
+        }
+
+        @keyframes float14 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            30% {
+                transform: translate(60px, -60px) rotate(-1deg);
+            }
+            60% {
+                transform: translate(-50px, 40px) rotate(2deg);
+            }
+        }
+
+        @keyframes float15 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            20% {
+                transform: translate(-40px, -50px) rotate(1deg);
+            }
+            40% {
+                transform: translate(70px, 60px) rotate(-1deg);
+            }
+            60% {
+                transform: translate(-30px, 80px) rotate(1.5deg);
+            }
+            80% {
+                transform: translate(50px, -40px) rotate(-0.5deg);
+            }
+        }
+
+        @keyframes float16 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(40px, 70px) rotate(-1deg);
+            }
+            50% {
+                transform: translate(-60px, -40px) rotate(2deg);
+            }
+            75% {
+                transform: translate(30px, -60px) rotate(-1deg);
+            }
+        }
+
+        @keyframes float18 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-45px, 55px) rotate(1.5deg);
+            }
+            66% {
+                transform: translate(50px, -65px) rotate(-1deg);
+            }
+        }
+
+        @keyframes float19 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            20% {
+                transform: translate(60px, 40px) rotate(-1.5deg);
+            }
+            40% {
+                transform: translate(-35px, 75px) rotate(1deg);
+            }
+            60% {
+                transform: translate(45px, -50px) rotate(-0.5deg);
+            }
+            80% {
+                transform: translate(-25px, 30px) rotate(1deg);
+            }
+        }
+
+        @keyframes float20 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            30% {
+                transform: translate(55px, 60px) rotate(-1deg);
+            }
+            60% {
+                transform: translate(-50px, -45px) rotate(1.5deg);
+            }
+        }
+
+        @keyframes float21 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(-40px, 70px) rotate(1deg);
+            }
+            50% {
+                transform: translate(65px, -55px) rotate(-2deg);
+            }
+            75% {
+                transform: translate(-35px, 45px) rotate(0.5deg);
+            }
+        }
+
+        /* Floating Button - Bottom Right */
+        .floating-button {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .floating-button:active {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .button-icon {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Light Mode Floating Button */
+        [data-theme="light"] .floating-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        @media (max-width: 720px) {
+            .floating-shape {
+                opacity: 0.6;
+            }
+
+            .floating-shape img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .floating-button {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .button-icon {
+                font-size: 20px;
+            }
+        }
+
+        /* Sliding Circles Menu */
+        .circles-menu {
+            position: fixed;
+            bottom: 120px;
+            right: 50px;
+            z-index: 1500;
+            pointer-events: none;
+        }
+
+        .circle-item {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--bg-elevated);
+            border: 2px solid #10b981;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: all;
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .circle-item i {
+            font-size: 20px;
+            color: white;
+        }
+
+        /* SweetAlert Theme Integration */
+        .theme-swal-popup {
+            border: 2px solid var(--border-color) !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .theme-swal-title {
+            color: #10b981 !important;
+        }
+
+        .theme-swal-content {
+            color: #10b981 !important;
+        }
+
+        [data-theme="light"] .theme-swal-title {
+            color: #000000 !important;
+        }
+
+        [data-theme="light"] .theme-swal-content {
+            color: #000000 !important;
+        }
+
+        [data-theme="light"] .swal2-confirm {
+            color: #000000 !important;
+        }
+
+        [data-theme="light"] .swal2-cancel {
+            color: #000000 !important;
+        }
+
+        [data-theme="light"] .circle-item {
+            border: 2px solid #000000;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .circles-menu.active .circle-item {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition: all 0.3s ease;
+        }
+
+        .circle-item:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 6px 18px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .circle-item:active {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        /* Individual Circle Positions */
+        .circle-1 {
+            bottom: -25px;
+            right: 0;
+            transition-delay: 0.1s;
+        }
+
+        .circle-2 {
+            bottom: 20px;
+            right: 0;
+            transition-delay: 0.2s;
+        }
+
+        .circle-3 {
+            bottom: 70px;
+            right: 0;
+            transition-delay: 0.3s;
+        }
+
+        .circle-4 {
+            bottom: 120px;
+            right: 0;
+            transition-delay: 0.4s;
+        }
+
+        .circles-menu.active .circle-1 {
+            transform: translateY(-35px) scale(1);
+        }
+
+        .circles-menu.active .circle-2 {
+            transform: translateY(-70px) scale(1);
+        }
+
+        .circles-menu.active .circle-3 {
+            transform: translateY(-105px) scale(1);
+        }
+
+        .circles-menu.active .circle-4 {
+            transform: translateY(-140px) scale(1);
+        }
+
+        .circle-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+
+        .circle-label {
+            font-size: 10px;
+            color: white;
+            font-weight: 500;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        /* Burger Button Animation */
+        .floating-button.active {
+            transform: rotate(45deg);
+            background: linear-gradient(135deg, #f56565 0%, #ed8936 100%);
+        }
+
+        .floating-button.active .button-icon {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 720px) {
+            .floating-shape {
+                opacity: 0.5;
+            }
+
+            .floating-shape img {
+                width: 70px;
+                height: 70px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Page Shell -->
     <div class="page-shell">
+        <div class="blur-orb" aria-hidden="true"></div>
+        <div class="floating-shapes" aria-hidden="true">
+            <!-- Programming Language Icons - Both Modes -->
+            <div class="floating-shape code-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+            <div class="floating-shape code-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+            <div class="floating-shape code-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"></div>
+            <div class="floating-shape code-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"></div>
+            <div class="floating-shape code-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"></div>
+            <div class="floating-shape code-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"></div>
+            <div class="floating-shape code-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"></div>
+            <div class="floating-shape code-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"></div>
+            
+            <!-- Dark Mode Stars -->
+            <div class="floating-shape star star-1"></div>
+            <div class="floating-shape star star-2"></div>
+            <div class="floating-shape star star-3"></div>
+            <div class="floating-shape star star-4"></div>
+            <div class="floating-shape star star-5"></div>
+            <div class="floating-shape star star-6"></div>
+            <div class="floating-shape star star-7"></div>
+            <div class="floating-shape star star-8"></div>
+            
+            <!-- Dark Mode Moon -->
+            <div class="floating-shape moon"></div>
+            
+            <!-- Light Mode Clouds and Sun -->
+            <div class="floating-shape cloud cloud-1"></div>
+            <div class="floating-shape cloud cloud-2"></div>
+            <div class="floating-shape cloud cloud-3"></div>
+            <div class="floating-shape cloud cloud-4"></div>
+            <div class="floating-shape sun"></div>
+        </div>
+        <!-- Floating Button - Bottom Right -->
+        <div class="floating-button" id="floatingButton">
+            <span class="button-icon">☰</span>
+        </div>
+        
+        <!-- Sliding Circles Menu -->
+        <div class="circles-menu" id="circlesMenu">
+            <div class="circle-item circle-1" data-action="logout">
+                <i class="fa fa-sign-out"></i>
+                <span class="circle-label">Logout</span>
+            </div>
+            <div class="circle-item circle-2" data-action="projects">
+                <i class="fa fa-folder"></i>
+                <span class="circle-label">Projects</span>
+            </div>
+            <div class="circle-item circle-3" data-action="theme">
+                <i class="fa fa-moon" id="themeIcon"></i>
+                <span class="circle-label">Theme</span>
+            </div>
+            <div class="circle-item circle-4" data-action="profile">
+                <i class="fa fa-user"></i>
+                <span class="circle-label">Profile</span>
+            </div>
+        </div>
+        
         <!-- Shell Container -->
         <div class="shell-inner">
         <!-- Header -->
@@ -3921,36 +4932,12 @@ try {
         </nav>
 
         <div class="nav-cta">
-            <button class="btn btn-ghost" type="button" id="searchBtn" aria-label="Search">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                </svg>
-            </button>
-            <div class="dropdown">
-                <button class="btn btn-ghost dropdown-toggle" id="userDropdown">
-                    <?php echo htmlspecialchars($fullname); ?>
-                </button>
-                <div class="dropdown-menu" id="dropdownMenu">
-                    <a href="edit_profile.php" class="dropdown-item">Edit Profile</a>
-                    <a href="add_project.php" class="dropdown-item">Add Projects</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="logout.php" class="dropdown-item">Logout</a>
-                </div>
-            </div>
+            <span class="user-name"><?php echo htmlspecialchars($fullname); ?></span>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span id="typed-text"></span>
-            </h1>
-            <p class="hero-description">
-                <?php echo htmlspecialchars($bio); ?>
-            </p>
-        </div>
         <?php if (!empty($hero_profile_img_path)): ?>
         <div class="hero-image">
             <div class="hero-bg-shapes">
@@ -3960,6 +4947,14 @@ try {
             <img src="<?php echo htmlspecialchars($hero_profile_img_path); ?>" alt="<?php echo htmlspecialchars($fullname); ?>">
         </div>
         <?php endif; ?>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span id="typed-text"></span>
+            </h1>
+            <p class="hero-description">
+                <?php echo htmlspecialchars($bio); ?>
+            </p>
+        </div>
     </section>
 
     <!-- Project Highlight Section -->
@@ -4021,7 +5016,6 @@ try {
     <section class="project-highlight">
         <div class="project-highlight-container">
             <div class="project-highlight-header scroll-fade-in">
-                <div class="section-label scroll-fade-in scroll-delay-1">FEATURED WORK</div>
                 <h2 class="section-title scroll-fade-in scroll-delay-2">PROJECT HIGHLIGHT</h2>
             </div>
             <div class="project-highlight-banner">
@@ -4118,8 +5112,7 @@ try {
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="projects-header scroll-fade-in">
-            <div class="section-label scroll-fade-in scroll-delay-1">MY WORK.</div>
-            <h2 class="section-title scroll-fade-in scroll-delay-2">RECENT PROJECT</h2>
+            <h2 class="section-title scroll-fade-in scroll-delay-2">PROJECTS</h2>
         </div>
         <div class="projects-grid">
             <?php if (!empty($projects)): ?>
@@ -4298,15 +5291,6 @@ try {
                     <a href="#" class="footer-social-icon">in</a>
                 </div>
             </div>
-            <div class="footer-section scroll-fade-in scroll-delay-2">
-                <h3 class="footer-title">Quick Links</h3>
-                <div class="footer-links">
-                    <a href="#home" class="footer-link">Home</a>
-                    <a href="#projects" class="footer-link">Projects</a>
-                    <a href="edit_profile.php" class="footer-link">Edit Profile</a>
-                    <a href="manage_projects.php" class="footer-link">Manage Projects</a>
-                </div>
-            </div>
             <div class="footer-section scroll-fade-in scroll-delay-3">
                 <h3 class="footer-title">Contact</h3>
                 <div class="footer-links">
@@ -4321,12 +5305,8 @@ try {
         </div>
         <div class="footer-bottom scroll-fade-in scroll-delay-4">
             <p class="footer-copyright">
-                &copy; BSIS 2025. All rights reserved.
+                © <?php echo date('Y'); ?> Copyright BAGO CITY COLLEGE BSIS. All rights reserved.
             </p>
-            <div class="footer-bottom-links">
-                <a href="edit_profile.php" class="footer-bottom-link">Privacy Policy</a>
-                <a href="edit_profile.php" class="footer-bottom-link">Terms of Service</a>
-            </div>
         </div>
     </footer>
 
@@ -4366,25 +5346,6 @@ try {
     </div>
 
     <script>
-        // Theme Toggle Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            
-            // Get saved theme or default to dark
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            html.setAttribute('data-theme', savedTheme);
-            
-            // Theme toggle handler
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function() {
-                    const currentTheme = html.getAttribute('data-theme');
-                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                    html.setAttribute('data-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-                });
-            }
-        });
 
         // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
@@ -4418,145 +5379,6 @@ try {
                 });
             }
 
-            // Dropdown menu toggle
-            const dropdownToggle = document.getElementById('userDropdown');
-            const dropdownMenu = document.getElementById('dropdownMenu');
-
-            if (dropdownToggle && dropdownMenu) {
-                dropdownToggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    dropdownMenu.classList.toggle('show');
-                });
-
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function(event) {
-                    const isClickInsideDropdown = dropdownMenu.contains(event.target);
-                    const isClickOnToggle = dropdownToggle.contains(event.target);
-                    
-                    if (!isClickInsideDropdown && !isClickOnToggle && dropdownMenu.classList.contains('show')) {
-                        dropdownMenu.classList.remove('show');
-                    }
-                });
-
-                // Close dropdown when clicking on a dropdown item
-                const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
-                dropdownItems.forEach(item => {
-                    item.addEventListener('click', function() {
-                        dropdownMenu.classList.remove('show');
-                    });
-                });
-
-                // Search button functionality
-                const searchBtn = document.getElementById('searchBtn');
-
-                // Function to smoothly close search input
-                function closeSearchInput() {
-                    const searchInput = document.getElementById('navbarSearchInput');
-                    const nav = searchBtn ? searchBtn.closest('.nav') : null;
-                    if (searchInput) {
-                        searchInput.classList.remove('active');
-                        // Remove search-active class when search closes (mobile only)
-                        if (nav && window.matchMedia('(max-width: 960px)').matches) {
-                            nav.classList.remove('search-active');
-                        }
-                        setTimeout(() => {
-                            const checkInput = document.getElementById('navbarSearchInput');
-                            if (checkInput && !checkInput.classList.contains('active')) {
-                                checkInput.remove();
-                            }
-                        }, 300);
-                    }
-                }
-
-                if (searchBtn) {
-                    searchBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        // Create or toggle search input
-                        let searchInput = document.getElementById('navbarSearchInput');
-                        if (!searchInput) {
-                            // Create search input if it doesn't exist
-                            searchInput = document.createElement('input');
-                            searchInput.type = 'text';
-                            searchInput.id = 'navbarSearchInput';
-                            searchInput.placeholder = 'Search...';
-                            searchInput.className = 'navbar-search-input';
-
-                            // On mobile, append to nav container; on desktop, insert before search button
-                            const nav = searchBtn.closest('.nav');
-                            if (nav && window.matchMedia('(max-width: 960px)').matches) {
-                                nav.appendChild(searchInput);
-                            } else {
-                                searchBtn.parentNode.insertBefore(searchInput, searchBtn);
-                            }
-
-                            // Trigger smooth animation by adding active class after a brief delay
-                            requestAnimationFrame(() => {
-                                searchInput.classList.add('active');
-                                searchInput.focus();
-                                // Add search-active class when search opens (mobile only)
-                                const nav = searchBtn.closest('.nav');
-                                if (nav && window.matchMedia('(max-width: 960px)').matches) {
-                                    nav.classList.add('search-active');
-                                }
-                            });
-
-                            // Add event listener for Enter key to search
-                            searchInput.addEventListener('keypress', (e) => {
-                                if (e.key === 'Enter') {
-                                    const searchTerm = searchInput.value.trim();
-                                    if (searchTerm) {
-                                        // Implement search functionality here
-                                        console.log('Searching for:', searchTerm);
-                                        // For now, just close the search
-                                        closeSearchInput();
-                                    }
-                                }
-                            });
-
-                            // Close search when clicking outside
-                            setTimeout(() => {
-                                document.addEventListener('click', function removeSearchInput(e) {
-                                    const isMobile = window.matchMedia('(max-width: 960px)').matches;
-                                    const nav = searchBtn.closest('.nav');
-                                    const clickedInsideNav = nav && nav.contains(e.target);
-
-                                    if (!searchInput.contains(e.target) && e.target !== searchBtn && (!isMobile || !clickedInsideNav)) {
-                                        closeSearchInput();
-                                        document.removeEventListener('click', removeSearchInput);
-                                    }
-                                });
-                            }, 100);
-
-                            // On mobile, ensure search input stays focused when clicking inside nav
-                            if (window.matchMedia('(max-width: 960px)').matches) {
-                                searchInput.addEventListener('blur', () => {
-                                    setTimeout(() => {
-                                        searchInput.focus();
-                                        // Add search-active class when search opens (mobile only)
-                                        const nav = searchBtn.closest('.nav');
-                                        if (nav && window.matchMedia('(max-width: 960px)').matches) {
-                                            nav.classList.add('search-active');
-                                        }
-                                    }, 0);
-                                });
-                            }
-                        } else {
-                            // Toggle existing search input
-                            if (searchInput.classList.contains('active')) {
-                                closeSearchInput();
-                            } else {
-                                searchInput.classList.add('active');
-                                searchInput.focus();
-                                // Add search-active class when search opens (mobile only)
-                                const nav = searchBtn.closest('.nav');
-                                if (nav && window.matchMedia('(max-width: 960px)').matches) {
-                                    nav.classList.add('search-active');
-                                }
-                            }
-                        }
-                    });
-                }
-            }
         });
 
         // Smooth scrolling
@@ -4613,7 +5435,7 @@ try {
 
         // Typed.js initialization for hero title
         document.addEventListener('DOMContentLoaded', function() {
-            const firstName = '<?php echo strtoupper(htmlspecialchars($first_name)); ?>';
+            const fullName = '<?php echo strtoupper(htmlspecialchars($fullname)); ?>';
             const typedText = document.getElementById('typed-text');
             
             if (typedText) {
@@ -4621,7 +5443,7 @@ try {
                 const typedStrings = [];
                 
                 // First string: "Hi! I'm [FIRSTNAME]"
-                const fullText = 'HI! I\'M <span class="highlight">' + firstName + '</span>';
+                const fullText = 'HI! I\'M <span class="highlight">' + fullName + '</span>';
                 typedStrings.push(fullText);
                 
                 <?php
@@ -5018,6 +5840,101 @@ try {
                 }
             });
         });
+
+        // Floating Button - Sliding Circles Menu
+        const floatingButton = document.getElementById('floatingButton');
+        const circlesMenu = document.getElementById('circlesMenu');
+        const circleItems = document.querySelectorAll('.circle-item');
+        let isMenuOpen = false;
+
+        // Toggle circles menu
+        floatingButton.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                circlesMenu.classList.add('active');
+                floatingButton.classList.add('active');
+                floatingButton.querySelector('.button-icon').textContent = '✕';
+            } else {
+                circlesMenu.classList.remove('active');
+                floatingButton.classList.remove('active');
+                floatingButton.querySelector('.button-icon').textContent = '☰';
+            }
+        });
+
+        // Handle circle item clicks
+        circleItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const action = item.getAttribute('data-action');
+                
+                switch(action) {
+                    case 'logout':
+                        const isLightMode = document.documentElement.getAttribute('data-theme') === 'light';
+                        Swal.fire({
+                            title: 'Logout Confirmation',
+                            text: 'Are you sure you want to logout?',
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonColor: '#667eea',
+                            cancelButtonColor: '#ef4444',
+                            confirmButtonText: 'Yes, logout',
+                            cancelButtonText: 'Cancel',
+                            background: getComputedStyle(document.documentElement).getPropertyValue('--bg-elevated'),
+                            color: isLightMode ? '#000000' : '#10b981',
+                            iconColor: isLightMode ? '#000000' : '#10b981',
+                            customClass: {
+                                popup: 'theme-swal-popup',
+                                title: 'theme-swal-title',
+                                content: 'theme-swal-content'
+                            }
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = 'logout.php';
+                            }
+                        });
+                        break;
+                    case 'projects':
+                        window.location.href = 'manage_projects.php';
+                        break;
+                    case 'theme':
+                        const currentTheme = document.documentElement.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                        document.documentElement.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        
+                        // Update theme icon
+                        const themeIcon = document.getElementById('themeIcon');
+                        if (newTheme === 'light') {
+                            themeIcon.className = 'fa fa-sun';
+                        } else {
+                            themeIcon.className = 'fa fa-moon';
+                        }
+                        break;
+                    case 'profile':
+                        window.location.href = 'edit_profile.php';
+                        break;
+                }
+                
+                // Keep menu open after action (don't auto-close)
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !floatingButton.contains(e.target) && !circlesMenu.contains(e.target)) {
+                circlesMenu.classList.remove('active');
+                floatingButton.classList.remove('active');
+                floatingButton.querySelector('.button-icon').textContent = '☰';
+                isMenuOpen = false;
+            }
+        });
+
+        // Update theme icon on load
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const themeIcon = document.getElementById('themeIcon');
+        if (currentTheme === 'light' && themeIcon) {
+            themeIcon.className = 'fa fa-sun';
+        }
     </script>
         </div>
         <!-- End Shell Container -->
